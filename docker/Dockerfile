@@ -1,5 +1,5 @@
 # =============================================================================
-# LLM_Line 完整环境（推荐）
+# handmade-llm 完整环境（推荐）
 #   - 基于 nvidia/cuda devel 镜像：自带 nvcc，可直接编译第 7 章的 CUDA 算子
 #   - 需要宿主机安装 NVIDIA Driver + nvidia-container-toolkit
 #

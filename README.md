@@ -1,4 +1,4 @@
-# LLM_Line：从 Python 循环到 NVIDIA 算子的完整路线
+# handmade-llm：从 Python 循环到 NVIDIA 算子的完整路线
 
 > 面向**只会 Python 基础语法（循环 / 函数 / 类）**的读者，一路讲到能自己写 CUDA 算子。
 > 全程 `md + 可运行代码`：每一章既有讲义（**含大量可直接抄的代码块与真实运行输出**），
@@ -69,7 +69,7 @@ bash script/run_all.sh 04         # 只跑第 4 章
 ## 2. 目录结构
 
 ```
-LLM_Line/
+handmade-llm/
 ├── README.md                 ← 你在这里（总纲）
 ├── docs/                     ← 各章讲义（理论 + 公式 + 代码索引）
 │   ├── 01-机器学习基础.md

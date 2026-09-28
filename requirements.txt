@@ -1,5 +1,5 @@
 # ==============================================================================
-# LLM_Line 依赖清单
+# handmade-llm 依赖清单
 #   · torch / torchvision 由 Dockerfile 按 CUDA 版本安装（见 docker/Dockerfile）
 #   · 本机安装：pip install -r requirements.txt
 #     GPU 版 torch 请另用：pip install torch --index-url https://download.pytorch.org/whl/cu121
