@@ -1,0 +1,43 @@
+{
+  "dataset": "explicit tiny synthetic Chinese teaching set",
+  "split_sizes": [
+    12,
+    2,
+    4
+  ],
+  "tfidf_test": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "confusion_matrix": [
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "gru_test": {
+    "accuracy": 0.75,
+    "macro_f1": 0.7333333333333334,
+    "confusion_matrix": [
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "generated_bigram": "画面糟糕非常失望",
+  "reload_equal": true,
+  "vocab_size": 48,
+  "environment": {
+    "python": "3.12.15",
+    "numpy": "1.26.4"
+  }
+}

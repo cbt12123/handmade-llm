@@ -1,0 +1,2 @@
+# Keep the attributed upstream dataset byte-for-byte, including whitespace.
+data/part03/SMSSpamCollection -text -diff

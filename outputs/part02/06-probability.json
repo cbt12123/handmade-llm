@@ -1,0 +1,32 @@
+{
+  "seed": 42,
+  "trials": 10000,
+  "frequency": 0.4939,
+  "posterior": 0.15384615384615385,
+  "entropy_uniform": 0.6931471805599453,
+  "entropy_skewed": 0.3250829733914482,
+  "vocabulary": [
+    "猫",
+    "狗",
+    "鸟",
+    "鱼"
+  ],
+  "test": [
+    "猫",
+    "鱼"
+  ],
+  "unsmoothed": {
+    "猫": 0.5,
+    "狗": 0.25,
+    "鸟": 0.25,
+    "鱼": 0.0
+  },
+  "unsmoothed_perplexity": "infinity: fish has probability zero",
+  "smoothed": {
+    "猫": 0.375,
+    "狗": 0.25,
+    "鸟": 0.25,
+    "鱼": 0.125
+  },
+  "smoothed_perplexity": 4.618802153517006
+}

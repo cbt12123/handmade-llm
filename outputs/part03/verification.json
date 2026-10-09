@@ -1,0 +1,34 @@
+{
+  "python": "3.12.15 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:14:50) [MSC v.1942 64 bit (AMD64)]",
+  "scripts_run": [
+    "08_sklearn_task.py",
+    "09_numpy_network.py",
+    "10_torch_training.py",
+    "11_cnn.py",
+    "12_text.py",
+    "13_transformer.py",
+    "12_real_sms.py",
+    "11_transfer_learning.py"
+  ],
+  "local_links_checked": 58,
+  "python_examples_executed": 17,
+  "reports": [
+    "08-report.json",
+    "09-report.json",
+    "10_report.json",
+    "11_report.json",
+    "11_transfer_report.json",
+    "12_report.json",
+    "12_sms_report.json",
+    "13_report.json"
+  ],
+  "checks": [
+    "finite-difference gradient",
+    "checkpoint reload",
+    "resume one step",
+    "CNN image prediction",
+    "causal prefix invariance",
+    "masked attention",
+    "free generation"
+  ]
+}

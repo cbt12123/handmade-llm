@@ -1,0 +1,29 @@
+{
+  "bfs_path": [
+    "A",
+    "B",
+    "D"
+  ],
+  "weighted_path": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "weighted_cost": 4,
+  "changed_path": [
+    "A",
+    "B",
+    "D"
+  ],
+  "changed_cost": 3,
+  "staircase_counts": [
+    1,
+    1,
+    2,
+    3,
+    5,
+    8,
+    13
+  ]
+}

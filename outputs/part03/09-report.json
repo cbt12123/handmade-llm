@@ -1,0 +1,42 @@
+{
+  "gradient_max_error": 2.3530261072934877e-11,
+  "split_sizes": [
+    360,
+    120,
+    120
+  ],
+  "baseline_test": {
+    "accuracy": 0.8833333333333333,
+    "macro_f1": 0.883300916921367,
+    "confusion_matrix": [
+      [
+        52,
+        8
+      ],
+      [
+        6,
+        54
+      ]
+    ]
+  },
+  "mlp_test": {
+    "accuracy": 0.9416666666666667,
+    "macro_f1": 0.9416301855326246,
+    "confusion_matrix": [
+      [
+        55,
+        5
+      ],
+      [
+        2,
+        58
+      ]
+    ]
+  },
+  "best_validation_loss": 0.16699769720178287,
+  "reload_identical": true,
+  "environment": {
+    "python": "3.12.15",
+    "numpy": "1.26.4"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "task": "reverse symbols 1..10, SEP=11 EOS=12 PAD=0",
+  "train_length": 5,
+  "steps": 1200,
+  "generation": {
+    "5": {
+      "exact_sequence_accuracy": 1.0,
+      "token_accuracy": 1.0
+    },
+    "3": {
+      "exact_sequence_accuracy": 0.0,
+      "token_accuracy": 0.29296875
+    },
+    "7": {
+      "exact_sequence_accuracy": 0.0,
+      "token_accuracy": 0.1513671875
+    }
+  },
+  "examples": [
+    {
+      "source": [
+        6,
+        8,
+        10,
+        6,
+        8
+      ],
+      "expected": [
+        8,
+        6,
+        10,
+        8,
+        6,
+        12
+      ],
+      "generated": [
+        8,
+        6,
+        10,
+        8,
+        6,
+        12
+      ]
+    },
+    {
+      "source": [
+        7,
+        5,
+        9,
+        2,
+        9
+      ],
+      "expected": [
+        9,
+        2,
+        9,
+        5,
+        7,
+        12
+      ],
+      "generated": [
+        9,
+        2,
+        9,
+        5,
+        7,
+        12
+      ]
+    },
+    {
+      "source": [
+        1,
+        1,
+        2,
+        6,
+        6
+      ],
+      "expected": [
+        6,
+        6,
+        2,
+        1,
+        1,
+        12
+      ],
+      "generated": [
+        6,
+        6,
+        2,
+        1,
+        1,
+        12
+      ]
+    },
+    {
+      "source": [
+        5,
+        3,
+        5,
+        6,
+        3
+      ],
+      "expected": [
+        3,
+        6,
+        5,
+        3,
+        5,
+        12
+      ],
+      "generated": [
+        3,
+        6,
+        5,
+        3,
+        5,
+        12
+      ]
+    }
+  ],
+  "causal_prefix_check": true,
+  "reload_equal": true,
+  "best_valid_ce": 3.097280932706781e-05,
+  "environment": {
+    "python": "3.12.15",
+    "numpy": "1.26.4"
+  }
+}

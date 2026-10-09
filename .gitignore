@@ -1,20 +1,5 @@
-# Python
 __pycache__/
 *.py[cod]
-.venv/
-venv/
-
-# 脚本产物（图片 / 编译产物 / 缓存）
-script/*/outputs/
-script/07_nvidia_kernels/build/
-*.so
-*.png
-!docker/**/*.png
-
-# PyTorch extension 编译缓存
-torch_extensions/
-
-# 编辑器 / 系统
-.DS_Store
-.idea/
 .vscode/
+.DS_Store
+tools/*preview.png
