@@ -1,0 +1,20 @@
+{
+  "health": {
+    "ready": true,
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "device": "cpu",
+    "busy": false,
+    "context_limit": 512,
+    "output_limit": 128,
+    "load_seconds": 2.6882233999931486
+  },
+  "response": {
+    "request_id": "52af89b1884c45da80cb1665a05cc5ac",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "finish_reason": "eos",
+    "text": "矩阵是一种数学结构，由多个元素按特定方式排列而成的矩形数组。",
+    "input_tokens": 26,
+    "output_tokens": 19,
+    "generation_seconds": 7.510115700002643
+  }
+}

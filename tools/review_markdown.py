@@ -42,7 +42,7 @@ if not mathjax.exists():
             mathjax.write_bytes(response.read())
 
 pages = {path: OUT / ('index.html' if path == ROOT/'README.md' else path.stem+'.html') for path in DOCS}
-# The two part READMEs need distinct filenames.
+# Part READMEs need distinct filenames.
 for path in DOCS:
     if path.name == 'README.md' and path != ROOT/'README.md': pages[path] = OUT/(path.parent.name+'.html')
 

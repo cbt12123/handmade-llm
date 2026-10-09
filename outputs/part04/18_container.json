@@ -1,0 +1,42 @@
+{
+  "container_name": "handmade-llm-part04-vllm",
+  "image_tag": "vllm/vllm-openai:v0.20.1-cu129-ubuntu2404",
+  "image_id": "sha256:7ba11e462b5a36def8e66ef56fa8f66a988dd0483b91f98efb2a3212bb545e47",
+  "command": [
+    "/models/qwen",
+    "--served-model-name",
+    "tutorial-qwen",
+    "--host",
+    "0.0.0.0",
+    "--port",
+    "8000",
+    "--dtype",
+    "float16",
+    "--max-model-len",
+    "512",
+    "--max-num-seqs",
+    "4",
+    "--gpu-memory-utilization",
+    "0.4",
+    "--enforce-eager"
+  ],
+  "container_running_at_verification": true,
+  "model_mount_read_only": true,
+  "environment": {
+    "python": "3.12.13",
+    "packages": {
+      "torch": "2.11.0+cu129",
+      "transformers": "5.7.0",
+      "vllm": "0.20.1+cu129",
+      "fastapi": "0.136.1",
+      "uvicorn": "0.46.0",
+      "requests": "2.33.1",
+      "numpy": "2.2.6"
+    },
+    "torch_runtime_version": "2.11.0+cu129",
+    "cuda_runtime": "12.9",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4060 Ti",
+    "gpu_total_memory_bytes": 17175150592
+  }
+}

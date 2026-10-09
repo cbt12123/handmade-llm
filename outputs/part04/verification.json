@@ -1,0 +1,27 @@
+{
+  "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Mar 11 2026, 17:42:35) [MSC v.1942 64 bit (AMD64)]",
+  "python_examples_executed": 19,
+  "local_links_checked": 29,
+  "http_boundary_checks": {
+    "invalid_role": 422,
+    "invalid_output_limit": 422,
+    "context_limit": 413,
+    "concurrent_request": 429
+  },
+  "report_files": [
+    "14_structure",
+    "15_inference",
+    "16_cache",
+    "17_memory",
+    "18_container",
+    "18_http",
+    "18_http_boundaries",
+    "18_vllm_http",
+    "19_evaluation",
+    "19_evaluation_vllm",
+    "19_manifest",
+    "verification_vllm"
+  ],
+  "injected_failure_returns_request_id_and_releases_lock": true,
+  "mode": "existing reports and examples"
+}

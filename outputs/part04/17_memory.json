@@ -1,0 +1,73 @@
+{
+  "kv_budget": [
+    {
+      "sequence": 256,
+      "batch": 1,
+      "fp16_kv_mib": 7.0
+    },
+    {
+      "sequence": 256,
+      "batch": 4,
+      "fp16_kv_mib": 28.0
+    },
+    {
+      "sequence": 1024,
+      "batch": 1,
+      "fp16_kv_mib": 28.0
+    },
+    {
+      "sequence": 1024,
+      "batch": 4,
+      "fp16_kv_mib": 112.0
+    },
+    {
+      "sequence": 4096,
+      "batch": 1,
+      "fp16_kv_mib": 112.0
+    },
+    {
+      "sequence": 4096,
+      "batch": 4,
+      "fp16_kv_mib": 448.0
+    },
+    {
+      "sequence": 8192,
+      "batch": 1,
+      "fp16_kv_mib": 224.0
+    },
+    {
+      "sequence": 8192,
+      "batch": 4,
+      "fp16_kv_mib": 896.0
+    }
+  ],
+  "quantization": {
+    "per_tensor": {
+      "weight_max_error": 0.15642093122005463,
+      "output_rmse": 0.3334473967552185,
+      "float32_bytes": 512,
+      "int8_plus_scale_bytes": 132,
+      "scales": [
+        0.31496062874794006
+      ]
+    },
+    "per_output_row": {
+      "weight_max_error": 0.15254870057106018,
+      "output_rmse": 0.11897537857294083,
+      "float32_bytes": 512,
+      "int8_plus_scale_bytes": 160,
+      "scales": [
+        0.31496062874794006,
+        0.016863366588950157,
+        0.008889545686542988,
+        0.013250943273305893,
+        0.010044774040579796,
+        0.013286097906529903,
+        0.013600948266685009,
+        0.01261243224143982
+      ]
+    }
+  },
+  "lora_merge_max_error": 1.4210854715202004e-14,
+  "scope": "Small matrix simulation only; no real model weights quantized or fine-tuned."
+}

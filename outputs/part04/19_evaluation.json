@@ -1,0 +1,134 @@
+{
+  "backend": "tutorial",
+  "dataset_sha256": "0b2506acc53e2bba58477e6ccc75b98690cc0d50a288346a7175805ef316c3d0",
+  "count": 8,
+  "correct": 3,
+  "categories": {
+    "arithmetic": {
+      "count": 3,
+      "correct": 3,
+      "format_valid": 3
+    },
+    "json": {
+      "count": 3,
+      "correct": 0,
+      "format_valid": 0
+    },
+    "missing_information": {
+      "count": 2,
+      "correct": 0,
+      "format_valid": 2
+    }
+  },
+  "latency_p50_seconds": 2.197506649994466,
+  "latency_p95_seconds": 8.636483619995124,
+  "total_generated_tokens_per_second": 2.492631693761962,
+  "results": [
+    {
+      "id": "arith_1",
+      "category": "arithmetic",
+      "expected": 5,
+      "output": "5",
+      "http_seconds": 1.4216806000040378,
+      "input_tokens": 43,
+      "output_tokens": 2,
+      "finish_reason": "eos",
+      "format_valid": true,
+      "correct": true
+    },
+    {
+      "id": "arith_2",
+      "category": "arithmetic",
+      "expected": 3,
+      "output": "3",
+      "http_seconds": 1.2809642999927746,
+      "input_tokens": 43,
+      "output_tokens": 2,
+      "finish_reason": "eos",
+      "format_valid": true,
+      "correct": true
+    },
+    {
+      "id": "arith_3",
+      "category": "arithmetic",
+      "expected": 42,
+      "output": "42",
+      "http_seconds": 1.569476400007261,
+      "input_tokens": 44,
+      "output_tokens": 3,
+      "finish_reason": "eos",
+      "format_valid": true,
+      "correct": true
+    },
+    {
+      "id": "json_1",
+      "category": "json",
+      "expected": {
+        "name": "王明",
+        "age": 20
+      },
+      "output": "```json\n{\n  \"name\": \"王明\",\n  \"age\": 20\n}\n```",
+      "http_seconds": 8.624433400007547,
+      "input_tokens": 63,
+      "output_tokens": 23,
+      "finish_reason": "eos",
+      "format_valid": false,
+      "correct": false
+    },
+    {
+      "id": "json_2",
+      "category": "json",
+      "expected": {
+        "name": "李红",
+        "age": 18
+      },
+      "output": "```json\n{\n  \"name\": \"李红\",\n  \"age\": 18\n}\n```",
+      "http_seconds": 8.567147399997339,
+      "input_tokens": 63,
+      "output_tokens": 23,
+      "finish_reason": "eos",
+      "format_valid": false,
+      "correct": false
+    },
+    {
+      "id": "json_3",
+      "category": "json",
+      "expected": {
+        "name": "赵青",
+        "age": 31
+      },
+      "output": "```json\n{\n  \"name\": \"赵青\",\n  \"age\": 31\n}\n```",
+      "http_seconds": 8.642972199988435,
+      "input_tokens": 63,
+      "output_tokens": 23,
+      "finish_reason": "eos",
+      "format_valid": false,
+      "correct": false
+    },
+    {
+      "id": "unknown_1",
+      "category": "missing_information",
+      "expected": "资料未提供",
+      "output": "资料未提供。",
+      "http_seconds": 2.218694199997117,
+      "input_tokens": 63,
+      "output_tokens": 5,
+      "finish_reason": "eos",
+      "format_valid": true,
+      "correct": false
+    },
+    {
+      "id": "unknown_2",
+      "category": "missing_information",
+      "expected": "资料未提供",
+      "output": "资料未提供。",
+      "http_seconds": 2.176319099991815,
+      "input_tokens": 62,
+      "output_tokens": 5,
+      "finish_reason": "eos",
+      "format_valid": true,
+      "correct": false
+    }
+  ],
+  "scope": "Eight authored teaching cases, sequential requests; not a general benchmark."
+}

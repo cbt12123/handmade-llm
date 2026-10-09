@@ -1,0 +1,38 @@
+{
+  "config": {
+    "model_type": "qwen2",
+    "hidden_size": 1536,
+    "num_hidden_layers": 28,
+    "num_attention_heads": 12,
+    "num_key_value_heads": 2,
+    "intermediate_size": 8960,
+    "vocab_size": 151936,
+    "max_position_embeddings": 32768,
+    "tie_word_embeddings": true,
+    "rope_theta": 1000000.0,
+    "head_dim": 128,
+    "query_projection_shape": [
+      1536,
+      1536
+    ],
+    "key_projection_shape": [
+      1536,
+      256
+    ],
+    "embedding_parameters": 233373696
+  },
+  "python": "3.10.20",
+  "packages": {
+    "torch": "2.10.0",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "huggingface-hub": "0.36.2",
+    "safetensors": "0.7.0",
+    "fastapi": "0.135.1",
+    "uvicorn": "0.41.0",
+    "requests": "2.32.5",
+    "pydantic": "2.12.5",
+    "numpy": "2.2.6"
+  },
+  "weights_loaded": false
+}

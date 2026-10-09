@@ -37,6 +37,17 @@ const review = path.join(root, 'outputs', 'review');
       if (overflow) result.errors.push({file,error:'Mobile horizontal page overflow'});
       await page.setViewportSize({width:1280,height:1050});
     }
+    if (/^(14|18|19)-/.test(file)) {
+      const number = file.slice(0,2);
+      await page.screenshot({path:path.join(review,number+'-desktop.png')});
+      await page.setViewportSize({width:390,height:844});
+      await page.reload(); await page.evaluate(() => window.MathJax.startup.promise);
+      await page.screenshot({path:path.join(review,number+'-mobile.png')});
+      if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 2)) {
+        result.errors.push({file,error:'Mobile horizontal page overflow'});
+      }
+      await page.setViewportSize({width:1280,height:1050});
+    }
     page.removeAllListeners('pageerror');
   }
   await browser.close();

@@ -1,0 +1,8 @@
+{"id":"arith_1","category":"arithmetic","prompt":"计算2+3，只输出一个整数，不要解释。","expected":5}
+{"id":"arith_2","category":"arithmetic","prompt":"计算7-4，只输出一个整数，不要解释。","expected":3}
+{"id":"arith_3","category":"arithmetic","prompt":"计算6乘以7，只输出一个整数，不要解释。","expected":42}
+{"id":"json_1","category":"json","prompt":"从句子提取姓名和年龄：王明今年20岁。只输出JSON对象，键为name和age，age是整数，不要其他文字。","expected":{"name":"王明","age":20}}
+{"id":"json_2","category":"json","prompt":"从句子提取姓名和年龄：李红今年18岁。只输出JSON对象，键为name和age，age是整数，不要其他文字。","expected":{"name":"李红","age":18}}
+{"id":"json_3","category":"json","prompt":"从句子提取姓名和年龄：赵青今年31岁。只输出JSON对象，键为name和age，age是整数，不要其他文字。","expected":{"name":"赵青","age":31}}
+{"id":"unknown_1","category":"missing_information","prompt":"只根据以下资料回答。资料：课程A在周一上课。问题：课程A的教室在哪里？若资料没有给出，只输出：资料未提供。","expected":"资料未提供"}
+{"id":"unknown_2","category":"missing_information","prompt":"只根据以下资料回答。资料：图书馆早上9点开门。问题：图书馆晚上几点关门？若资料没有给出，只输出：资料未提供。","expected":"资料未提供"}

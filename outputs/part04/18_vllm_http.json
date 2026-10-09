@@ -1,0 +1,91 @@
+{
+  "models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "tutorial-qwen",
+        "object": "model",
+        "created": 1791541411,
+        "owned_by": "vllm",
+        "root": "/models/qwen",
+        "parent": null,
+        "max_model_len": 512,
+        "permission": [
+          {
+            "id": "modelperm-9b9377ba399b1084",
+            "object": "model_permission",
+            "created": 1791541411,
+            "allow_create_engine": false,
+            "allow_sampling": true,
+            "allow_logprobs": true,
+            "allow_search_indices": false,
+            "allow_view": true,
+            "allow_fine_tuning": false,
+            "organization": "*",
+            "group": null,
+            "is_blocking": false
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "id": "chatcmpl-a0bbdad98f12ce02",
+    "object": "chat.completion",
+    "created": 1791541411,
+    "model": "tutorial-qwen",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "矩阵是一种数学结构，由多个元素按照特定规则排列而成的二维数组。",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [],
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "prompt_tokens": 35,
+      "total_tokens": 53,
+      "completion_tokens": 18,
+      "prompt_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  },
+  "http_seconds": 0.36079370000516064,
+  "stream": {
+    "assembled_text": "矩阵是一种数学结构，由多个元素按照特定规则排列而成的二维数组。",
+    "same_as_nonstream": true,
+    "first_visible_seconds": 0.03601509999134578,
+    "total_seconds": 0.2970539999951143,
+    "usage": {
+      "prompt_tokens": 35,
+      "total_tokens": 53,
+      "completion_tokens": 18
+    },
+    "finish_reason": "stop",
+    "done_received": true
+  },
+  "structured": {
+    "raw": "{\n  \"name\": \"王明\",\n  \"age\": 20\n}",
+    "parsed": {
+      "name": "王明",
+      "age": 20
+    },
+    "matches_expected": true
+  },
+  "scope": "Single request checks; no claim about concurrency throughput or exact server-side TTFT."
+}

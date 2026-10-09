@@ -1,0 +1,29 @@
+{
+  "health_status": 200,
+  "concurrent_requests": [
+    {
+      "input": 1,
+      "output": "2",
+      "correct": true
+    },
+    {
+      "input": 2,
+      "output": "3",
+      "correct": true
+    },
+    {
+      "input": 3,
+      "output": "4",
+      "correct": true
+    },
+    {
+      "input": 4,
+      "output": "5",
+      "correct": true
+    }
+  ],
+  "stream_matches_nonstream": true,
+  "structured_json_matches_expected": true,
+  "evaluation_report": "19_evaluation_vllm.json",
+  "scope": "Functional checks, not a throughput benchmark"
+}

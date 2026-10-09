@@ -1,0 +1,116 @@
+{
+  "device": "cpu",
+  "dtype": "torch.float32",
+  "load_seconds": 2.605999300008989,
+  "actual_parameters": 1543714304,
+  "token_examples": [
+    {
+      "text": "Python",
+      "characters": 6,
+      "ids": [
+        30280
+      ],
+      "pieces": [
+        "Python"
+      ],
+      "decoded": "Python"
+    },
+    {
+      "text": "我正在学习Python。",
+      "characters": 12,
+      "ids": [
+        35946,
+        96555,
+        100134,
+        30280,
+        1773
+      ],
+      "pieces": [
+        "æĪĳ",
+        "æŃ£åľ¨",
+        "åŃ¦ä¹ł",
+        "Python",
+        "ãĢĤ"
+      ],
+      "decoded": "我正在学习Python。"
+    },
+    {
+      "text": "2 + 3 = 5",
+      "characters": 9,
+      "ids": [
+        17,
+        488,
+        220,
+        18,
+        284,
+        220,
+        20
+      ],
+      "pieces": [
+        "2",
+        "Ġ+",
+        "Ġ",
+        "3",
+        "Ġ=",
+        "Ġ",
+        "5"
+      ],
+      "decoded": "2 + 3 = 5"
+    }
+  ],
+  "chat_template_text": "<|im_start|>system\n请用中文简短回答。<|im_end|>\n<|im_start|>user\n用一句话解释什么是矩阵。<|im_end|>\n<|im_start|>assistant\n",
+  "next_token_top5": [
+    {
+      "id": 115000,
+      "piece": "矩阵",
+      "probability": 0.9605168700218201
+    },
+    {
+      "id": 46944,
+      "piece": "一个",
+      "probability": 0.029255958274006844
+    },
+    {
+      "id": 111169,
+      "piece": "行列",
+      "probability": 0.0036075105890631676
+    },
+    {
+      "id": 104552,
+      "piece": "数学",
+      "probability": 0.000548498472198844
+    },
+    {
+      "id": 101053,
+      "piece": "一种",
+      "probability": 0.0005141582805663347
+    }
+  ],
+  "generation": {
+    "text": "矩阵是一种数学结构，由多个元素按特定方式排列而成的矩形数组。",
+    "input_tokens": 26,
+    "output_tokens": 19,
+    "generation_seconds": 8.08599089999916,
+    "token_ids": [
+      115000,
+      101158,
+      104552,
+      100166,
+      3837,
+      67071,
+      101213,
+      102268,
+      59879,
+      105149,
+      75768,
+      108467,
+      106042,
+      9370,
+      100984,
+      82699,
+      69824,
+      1773,
+      151645
+    ]
+  }
+}

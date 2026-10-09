@@ -4,3 +4,5 @@ __pycache__/
 .DS_Store
 tools/*preview.png
 outputs/review/
+models/
+outputs/part04/server*.log
