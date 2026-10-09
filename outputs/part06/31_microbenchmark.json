@@ -1,0 +1,441 @@
+{
+  "results": [
+    {
+      "shape": [
+        1,
+        1536
+      ],
+      "dtype": "float16",
+      "measurements": {
+        "torch_eager": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.16437280178070068,
+          "event_samples_ms": [
+            0.16763999462127685,
+            0.17176320552825927,
+            0.1642624020576477,
+            0.1286911964416504,
+            0.16135679483413695,
+            0.16437280178070068,
+            0.18360320329666138
+          ],
+          "wall_median_ms": 0.16589233749897403,
+          "wall_samples_ms": [
+            0.17474208750059006,
+            0.17295797500054277,
+            0.1656319249988769,
+            0.1301875125008678,
+            0.16283271250046027,
+            0.16589233749897403,
+            0.184949674999757
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "torch_compile": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.054067200422286986,
+          "event_samples_ms": [
+            0.07630079984664917,
+            0.054067200422286986,
+            0.009164799749851228,
+            0.07632920145988464,
+            0.0398719996213913,
+            0.06440960168838501,
+            0.052799999713897705
+          ],
+          "wall_median_ms": 0.055023737499482195,
+          "wall_samples_ms": [
+            0.07701967499968987,
+            0.055023737499482195,
+            0.04646897500037994,
+            0.07686906249944059,
+            0.040713937499958774,
+            0.0648202500002526,
+            0.053641000000936856
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "triton_4_warps": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.03078399896621704,
+          "event_samples_ms": [
+            0.030524399876594544,
+            0.03078399896621704,
+            0.006646800041198731,
+            0.03587839901447296,
+            0.06983680129051209,
+            0.02859880030155182,
+            0.032179200649261476
+          ],
+          "wall_median_ms": 0.03270134999979746,
+          "wall_samples_ms": [
+            0.03191128750046346,
+            0.03127343750009004,
+            0.04543627500055436,
+            0.03658929999943439,
+            0.07060039999942092,
+            0.0293216624996262,
+            0.03270134999979746
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "triton_8_warps": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.03163999915122986,
+          "event_samples_ms": [
+            0.029672399163246155,
+            0.04150919914245606,
+            0.05487359762191772,
+            0.029994800686836243,
+            0.03163999915122986,
+            0.05487080216407776,
+            0.02854599952697754
+          ],
+          "wall_median_ms": 0.032122362499364954,
+          "wall_samples_ms": [
+            0.030546637499639928,
+            0.04199414999987994,
+            0.057947199999830445,
+            0.030581237500371117,
+            0.032122362499364954,
+            0.05550300000010111,
+            0.02937633750121904
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        }
+      }
+    },
+    {
+      "shape": [
+        32,
+        1536
+      ],
+      "dtype": "float16",
+      "measurements": {
+        "torch_eager": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.21597440242767335,
+          "event_samples_ms": [
+            0.15677640438079835,
+            0.22407679557800292,
+            0.1814911961555481,
+            0.3091628074645996,
+            0.1783679962158203,
+            0.21597440242767335,
+            0.2203007936477661
+          ],
+          "wall_median_ms": 0.21755086249868327,
+          "wall_samples_ms": [
+            0.15832547500025385,
+            0.22606950000039205,
+            0.1841960124991715,
+            0.3128404750000868,
+            0.17961178750027784,
+            0.21755086249868327,
+            0.2220957749997865
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "torch_compile": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.0821727991104126,
+          "event_samples_ms": [
+            0.07147719860076904,
+            0.08881919980049133,
+            0.0821727991104126,
+            0.07848960161209106,
+            0.09183200001716614,
+            0.07466319799423218,
+            0.13783799409866332
+          ],
+          "wall_median_ms": 0.08992521249950869,
+          "wall_samples_ms": [
+            0.074067674999867,
+            0.08992521249950869,
+            0.08355683750096432,
+            0.11949211249913105,
+            0.09332835000037676,
+            0.07524048749871781,
+            0.14058601250042102
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "triton_4_warps": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.0334307998418808,
+          "event_samples_ms": [
+            0.019905999302864075,
+            0.062413597106933595,
+            0.06289079785346985,
+            0.03467479944229126,
+            0.006963200122117996,
+            0.0334307998418808,
+            0.00727040022611618
+          ],
+          "wall_median_ms": 0.04563996249942193,
+          "wall_samples_ms": [
+            0.058992650001243874,
+            0.06373857499966107,
+            0.06382438750023312,
+            0.03545881250062166,
+            0.04563996249942193,
+            0.03410016249887349,
+            0.045473125000228265
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "triton_8_warps": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.06750720143318176,
+          "event_samples_ms": [
+            0.06056960225105286,
+            0.06750720143318176,
+            0.029515999555587768,
+            0.05185279846191406,
+            0.06858199834823608,
+            0.07425240278244019,
+            0.07683799862861633
+          ],
+          "wall_median_ms": 0.06873020000028873,
+          "wall_samples_ms": [
+            0.06126308749969667,
+            0.06873020000028873,
+            0.030363125000576474,
+            0.05411861250053107,
+            0.0697258375012666,
+            0.07513511249896965,
+            0.07799743750069865
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        }
+      }
+    },
+    {
+      "shape": [
+        512,
+        1536
+      ],
+      "dtype": "float16",
+      "measurements": {
+        "torch_eager": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.17847039699554443,
+          "event_samples_ms": [
+            0.22401680946350097,
+            0.17847039699554443,
+            0.1677440047264099,
+            0.16547839641571044,
+            0.14652160406112671,
+            0.20515999794006348,
+            0.2643071889877319
+          ],
+          "wall_median_ms": 0.17968142499995565,
+          "wall_samples_ms": [
+            0.2270043875000738,
+            0.17968142499995565,
+            0.16893458749933643,
+            0.16711875000083865,
+            0.15259322500043027,
+            0.207574325000337,
+            0.2668847750001646
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "torch_compile": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.08968160152435303,
+          "event_samples_ms": [
+            0.08520960211753845,
+            0.0692351996898651,
+            0.06871039867401123,
+            0.13370879888534545,
+            0.08968160152435303,
+            0.13747999668121338,
+            0.10165519714355468
+          ],
+          "wall_median_ms": 0.09074638749950736,
+          "wall_samples_ms": [
+            0.08731498750051969,
+            0.07260097499965923,
+            0.06935563749976836,
+            0.14190061250047847,
+            0.09074638749950736,
+            0.1395361124991723,
+            0.10265669999967031
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "triton_4_warps": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.0682752013206482,
+          "event_samples_ms": [
+            0.0682752013206482,
+            0.0846231997013092,
+            0.06689239740371704,
+            0.07504400014877319,
+            0.0636031985282898,
+            0.07101320028305054,
+            0.0387584000825882
+          ],
+          "wall_median_ms": 0.07019526250076069,
+          "wall_samples_ms": [
+            0.07019526250076069,
+            0.08612791250044438,
+            0.06954451250038574,
+            0.07595711250019122,
+            0.06419907499974897,
+            0.07222478750037453,
+            0.040561162501262515
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "triton_8_warps": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.04390400052070618,
+          "event_samples_ms": [
+            0.03012920022010803,
+            0.04390400052070618,
+            0.07299839854240417,
+            0.07038599848747254,
+            0.03259919881820679,
+            0.009319599717855453,
+            0.06706719994544982
+          ],
+          "wall_median_ms": 0.048180087500782065,
+          "wall_samples_ms": [
+            0.03139634999911323,
+            0.048180087500782065,
+            0.07358897500040484,
+            0.07124901250108451,
+            0.033466749999888634,
+            0.04467631249980286,
+            0.06873402499962822
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        }
+      }
+    },
+    {
+      "shape": [
+        2048,
+        1536
+      ],
+      "dtype": "float16",
+      "measurements": {
+        "torch_eager": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.3992959976196289,
+          "event_samples_ms": [
+            0.39679999351501466,
+            0.4373504161834717,
+            0.4425856113433838,
+            0.39799039363861083,
+            0.3751424074172974,
+            0.4219520092010498,
+            0.3992959976196289
+          ],
+          "wall_median_ms": 0.401441612500264,
+          "wall_samples_ms": [
+            0.3986444375001952,
+            0.44190549999996165,
+            0.4445394875006059,
+            0.3997989875003327,
+            0.38074845000011237,
+            0.4264867124987859,
+            0.401441612500264
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "torch_compile": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.07852320075035095,
+          "event_samples_ms": [
+            0.09507840275764465,
+            0.12112640142440796,
+            0.07852320075035095,
+            0.08726919889450073,
+            0.06837559938430786,
+            0.07280640006065368,
+            0.07029759883880615
+          ],
+          "wall_median_ms": 0.08033958749962267,
+          "wall_samples_ms": [
+            0.09818675000019539,
+            0.12211596250040202,
+            0.08033958749962267,
+            0.08863383749968534,
+            0.06915200000037203,
+            0.07372273749979286,
+            0.07085796250123622
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "triton_4_warps": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.02873600125312805,
+          "event_samples_ms": [
+            0.03165279924869537,
+            0.013414399325847625,
+            0.060880798101425174,
+            0.02873600125312805,
+            0.009779199957847595,
+            0.03613159954547882,
+            0.010675200074911118
+          ],
+          "wall_median_ms": 0.046938149999675716,
+          "wall_samples_ms": [
+            0.03215655000019524,
+            0.0485374250004611,
+            0.0617710875005173,
+            0.02965348750052499,
+            0.04929936250022138,
+            0.03682623749909908,
+            0.046938149999675716
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        },
+        "triton_8_warps": {
+          "iterations_per_repeat": 80,
+          "repeats": 7,
+          "event_median_ms": 0.06325799822807313,
+          "event_samples_ms": [
+            0.013465599715709686,
+            0.06325799822807313,
+            0.03033599853515625,
+            0.045710399746894836,
+            0.06490880250930786,
+            0.07804359793663025,
+            0.07138559818267823
+          ],
+          "wall_median_ms": 0.06432546250039195,
+          "wall_samples_ms": [
+            0.05065358750044879,
+            0.06432546250039195,
+            0.031842024999662044,
+            0.05065708750038311,
+            0.06641715000057502,
+            0.07927847500042162,
+            0.07236791250022634
+          ],
+          "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+        }
+      }
+    }
+  ],
+  "scope": "Isolated RMSNorm on warmed/cached inputs, includes wrapper and allocation; not inference acceleration ratio"
+}

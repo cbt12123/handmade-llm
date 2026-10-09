@@ -4,7 +4,7 @@
 
 机器学习部分对局部公式先给定义、符号和数值例子，再展开推导；需要多个模块组合的公式则逐步建立。每章配参考实验与验收要求，帮助读者把知识转化为实际产出。
 
-目前已完成第一至第五部分的初稿。第六部分尚未编写。
+目前已完成六个部分的初稿。最后一部分将自写融合算子接入真实模型与HTTP服务，保留正确性、调用证据和实际性能结果。
 
 | 部分 | 内容 | 状态 |
 |---|---|---|
@@ -13,13 +13,13 @@
 | 第三部分 | 机器学习与深度学习 | [章节与运行指南](第三部分-机器学习与深度学习/README.md) |
 | 第四部分 | 大模型与部署 | [章节与运行指南](第四部分-大模型与部署/README.md) |
 | 第五部分 | Rules、Skills、Knowledge 与课程学习 Agent | [章节与运行指南](第五部分-Agent/README.md) |
-| 第六部分 | NVIDIA 算子开发分支 | 待编写 |
+| 第六部分 | NVIDIA 算子开发与真实推理优化 | [章节与运行指南](第六部分-NVIDIA算子开发/README.md) |
 
 ## 阅读与运行
 
 环境统一使用 **conda + VS Code**。第一部分使用 conda 的 `base` 环境，不设章末作品；通过短例子、随堂检查与参考答案确认理解。Python 语法示例只使用标准库，数组与绘图示例使用 NumPy、Matplotlib。
 
-第二部分继续使用`base`；第三部分使用独立的`handmade-ml`环境，安装、版本组合与镜像站见[第三部分运行指南](第三部分-机器学习与深度学习/README.md)。第五部分的Agent进程继续使用base，通过HTTP复用第四部分的模型与WSL镜像；目录对应目前已写出的内容，第六部分目录尚未建立。
+第二部分继续使用`base`；第三部分使用独立的`handmade-ml`环境，安装、版本组合与镜像站见[第三部分运行指南](第三部分-机器学习与深度学习/README.md)。第五部分的Agent进程继续使用base，通过HTTP复用第四部分的模型与WSL镜像。第六部分继续使用conda和VS Code编辑，GPU实验复用WSL容器；环境及运行步骤见对应部分指南。
 
 每个部分一个文件夹，章节为 Markdown 文件，图片集中保存在根目录 `images/`。在 VS Code 打开章节后，按 `Ctrl+Shift+V` 查看带图片的预览。
 
@@ -62,7 +62,19 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
 │   ├── 25-状态记忆与多步骤任务.md
 │   ├── 26-组装完整课程学习助手.md
 │   └── 27-测试评价与扩展.md
-├── assets/part05/              # 规则、技能、题库与来源约定全文
+├── 第六部分-NVIDIA算子开发/
+│   ├── README.md
+│   ├── 28-从推理瓶颈到GPU执行.md
+│   ├── 29-第一个CUDA程序与数据布局.md
+│   ├── 30-归约共享内存与矩阵复用.md
+│   ├── 31-用Triton实现融合RMSNorm.md
+│   ├── 32-Softmax贪心选择与少算一步.md
+│   ├── 33-性能测量与瓶颈分析.md
+│   ├── 34-把融合算子接入真实推理.md
+│   └── 35-算子部署评价与交付.md
+├── assets/
+│   ├── part05/                 # 规则、技能、题库与来源约定全文
+│   └── part06/                 # 原生CUDA完整源码与实现索引
 ├── images/                     # 所有正文插图与实验图
 │   ├── part01-*.png
 │   ├── part02-*.png
@@ -70,18 +82,21 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
 │   ├── part03-story-*.png
 │   ├── part03-result-*.png
 │   ├── part04-*.png
-│   └── part05-*.png
+│   ├── part05-*.png
+│   └── part06-*.png
 ├── script/
 │   ├── part02/                 # 四章数学参考实验
 │   ├── part03/                 # 六章实验与模型演示
 │   ├── part04/                 # 本地LLM、缓存、HTTP服务与评价
-│   └── part05/                 # 手写Agent、工具、知识、记录与评价
+│   ├── part05/                 # 手写Agent、工具、知识、记录与评价
+│   └── part06/                 # CUDA验证、Triton、模型适配与HTTP服务
 ├── data/                       # part03短信与part04、part05评价用例
 ├── outputs/
 │   ├── part02/                 # 数值报告与实验图
 │   ├── part03/                 # 模型、评价、演示与核验报告
 │   ├── part04/                 # 配置、缓存、部署、评价与manifest
 │   ├── part05/                 # Agent评价与恢复核验；个人数据忽略上传
+│   ├── part06/                 # 算子与真实推理报告；忽略编译产物和大trace
 │   └── review/                 # 本地Markdown审阅页与截图
 └── tools/
     ├── draw_part01.py       # 基础教学插图的生成源码
@@ -98,6 +113,8 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
     ├── verify_part05.py     # Agent权限、评分、恢复与事务核验
     ├── verify_part05_http.py # 实际HTTP入口与并发边界
     ├── record_part05_environment.py # 已复用环境的实际版本
+    ├── draw_part06.py       # 算子原理与真实性能插图
+    ├── verify_part06_gpu.py # 真实GPU验证、模型基准与Profiler
     └── review_markdown.py   # Markdown结构与本地审阅页
 ```
 
@@ -156,3 +173,16 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
 27. [测试、评价与扩展](第五部分-Agent/27-测试评价与扩展.md)
 
 第五部分用普通Python手写Agent，逐章完成查询、练习、评分、复习记录与任务恢复。正文讲结构，完整规则与技能放在[仓库附件](assets/part05/README.md)。基础检索与机制核验可离线运行，真实模型实验复用第四部分的权重与WSL镜像，保留小模型的失败轨迹。环境、产出和验证范围见[运行指南](第五部分-Agent/README.md)。
+
+## 第六部分章节
+
+28. [从推理瓶颈到GPU执行](第六部分-NVIDIA算子开发/28-从推理瓶颈到GPU执行.md)
+29. [第一个CUDA程序与数据布局](第六部分-NVIDIA算子开发/29-第一个CUDA程序与数据布局.md)
+30. [归约、共享内存与矩阵复用](第六部分-NVIDIA算子开发/30-归约共享内存与矩阵复用.md)
+31. [用Triton实现融合RMSNorm](第六部分-NVIDIA算子开发/31-用Triton实现融合RMSNorm.md)
+32. [Softmax、贪心选择与少算一步](第六部分-NVIDIA算子开发/32-Softmax贪心选择与少算一步.md)
+33. [性能测量与瓶颈分析](第六部分-NVIDIA算子开发/33-性能测量与瓶颈分析.md)
+34. [把融合算子接入真实推理](第六部分-NVIDIA算子开发/34-把融合算子接入真实推理.md)
+35. [算子部署、评价与交付](第六部分-NVIDIA算子开发/35-算子部署评价与交付.md)
+
+第六部分从原生CUDA索引、归约与分块开始，再实现符合Qwen精度约定的Triton融合RMSNorm，接入实际模型和默认使用它的HTTP服务。每章有可检查产出；完整源码、环境与测量范围见[运行指南](第六部分-NVIDIA算子开发/README.md)。本次短输入生成观察到约1.15～1.16倍加速，长输入收益有限；保留慢于成熟库和预填充略慢的结果，帮助判断优化是否值得采用。

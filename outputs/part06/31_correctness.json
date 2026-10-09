@@ -1,0 +1,507 @@
+{
+  "checks": {
+    "vector_add_odd_tail_and_empty": true,
+    "rms_multiple_dtypes_shapes_scales": true,
+    "stable_softmax_odd_tail": true,
+    "noncontiguous_rejected": true,
+    "unsupported_autograd_rejected": true
+  },
+  "cases": [
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 1,
+      "max_error": 4.76837158203125e-07
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 50,
+      "max_error": 7.152557373046875e-07
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 0,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 1,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 50,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 1,
+      "max_error": 9.5367431640625e-07
+    },
+    {
+      "dtype": "torch.float32",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 50,
+      "max_error": 7.152557373046875e-07
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 1,
+      "max_error": 0.0009765625
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 0,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 1,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 50,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 1,
+      "max_error": 0.00048828125
+    },
+    {
+      "dtype": "torch.float16",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 50,
+      "max_error": 0.0009765625
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        1
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        257
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        17,
+        1537
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        1,
+        1,
+        1536
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 0,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 1,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        0,
+        1536
+      ],
+      "scale": 50,
+      "max_error": 0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 0,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 1,
+      "max_error": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "shape": [
+        32,
+        4096
+      ],
+      "scale": 50,
+      "max_error": 0.0
+    }
+  ],
+  "scope": "Real CUDA Triton execution; finite test inputs, no backward verification"
+}

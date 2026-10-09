@@ -1,0 +1,20 @@
+{
+  "python": "3.12.13",
+  "packages": {
+    "torch": "2.11.0+cu129",
+    "triton": "3.6.0",
+    "transformers": "5.7.0",
+    "numpy": "2.2.6"
+  },
+  "torch_cuda_runtime": "12.9",
+  "gpu": "NVIDIA GeForce RTX 4060 Ti",
+  "compute_capability": [
+    8,
+    9
+  ],
+  "gpu_memory_bytes": 17175150592,
+  "sm_count": 34,
+  "nvcc_available": true,
+  "nvcc_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_May_27_02:21:03_PDT_2025\nCuda compilation tools, release 12.9, V12.9.86\nBuild cuda_12.9.r12.9/compiler.36037853_0",
+  "compute_sanitizer_available": false
+}

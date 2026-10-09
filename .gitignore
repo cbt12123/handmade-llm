@@ -15,3 +15,6 @@ outputs/part05/27_evaluation_intermediate.json
 outputs/part05/27_evaluation_contract.json
 outputs/part05/27_evaluation_budget.json
 outputs/part05/27_evaluation_prompt.json
+outputs/part06/build/
+outputs/part06/trace-*.json
+outputs/part06/server*.log

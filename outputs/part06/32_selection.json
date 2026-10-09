@@ -1,0 +1,65 @@
+{
+  "vocabulary_size": 151936,
+  "same_id_on_random_logits": true,
+  "argmax": {
+    "iterations_per_repeat": 80,
+    "repeats": 7,
+    "event_median_ms": 0.06613759994506836,
+    "event_samples_ms": [
+      0.06064640283584595,
+      0.06618919968605042,
+      0.06613759994506836,
+      0.018329599499702455,
+      0.06041600108146668,
+      0.07019320130348206,
+      0.06783999800682068
+    ],
+    "wall_median_ms": 0.06817562500032182,
+    "wall_samples_ms": [
+      0.06364692499971625,
+      0.06863509999988082,
+      0.06817562500032182,
+      0.019878587499988498,
+      0.06325253749963622,
+      0.07263421249916746,
+      0.0718035125004235
+    ],
+    "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+  },
+  "softmax_then_argmax": {
+    "iterations_per_repeat": 80,
+    "repeats": 7,
+    "event_median_ms": 0.08731840252876281,
+    "event_samples_ms": [
+      0.08428800106048584,
+      0.08428800106048584,
+      0.08895800113677979,
+      0.0844543993473053,
+      0.0887935996055603,
+      0.12654080390930175,
+      0.08731840252876281
+    ],
+    "wall_median_ms": 0.09055642500044314,
+    "wall_samples_ms": [
+      0.12594156250003152,
+      0.08569824999966613,
+      0.09022851250080066,
+      0.12738861250056743,
+      0.09055642500044314,
+      0.129438337499721,
+      0.08886541250063829
+    ],
+    "scope": "Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch."
+  },
+  "scope": "Greedy selection shortcut only; model baseline already uses direct argmax. Not sampling or speculative decoding.",
+  "rounding_counterexample": {
+    "direct_id": 1,
+    "softmax_id": 0,
+    "logits": [
+      [
+        0.0,
+        1.4901161193847656e-08
+      ]
+    ]
+  }
+}

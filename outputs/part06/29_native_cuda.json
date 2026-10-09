@@ -1,0 +1,47 @@
+{
+  "arch": "sm_89",
+  "examples": {
+    "vector_add": {
+      "n": 1048579,
+      "blocks": 4097,
+      "threads": 256,
+      "max_error": 0,
+      "event_ms": 0.0100659207,
+      "effective_GB_s": 1250.05436,
+      "sanitizer_log": "========= COMPUTE-SANITIZER\n{\"n\":1048579,\"blocks\":4097,\"threads\":256,\"max_error\":0,\"event_ms\":2.16118264,\"effective_GB_s\":5.82225109}\n========= ERROR SUMMARY: 0 errors\n"
+    },
+    "rms_norm": {
+      "rows": 17,
+      "width": 1537,
+      "max_error_vs_fp64": 2.1116155e-07,
+      "all_warps_share_scale": true,
+      "sanitizer_log": "========= COMPUTE-SANITIZER\n{\"rows\":17,\"width\":1537,\"max_error_vs_fp64\":2.1116155e-07,\"all_warps_share_scale\":true}\n========= ERROR SUMMARY: 0 errors\n"
+    },
+    "matmul": {
+      "shape": [
+        512,
+        512,
+        512
+      ],
+      "naive_ms": 0.593264639,
+      "tiled_ms": 0.480389148,
+      "cublas_ms": 0.0679935962,
+      "naive_max_error": 2.08616257e-07,
+      "tiled_max_error": 2.08616257e-07,
+      "sanitizer_log": "========= COMPUTE-SANITIZER\n{\"shape\":[23,19,37],\"naive_ms\":0.661104679,\"tiled_ms\":0.420177907,\"cublas_ms\":1.4238925,\"naive_max_error\":2.98023224e-08,\"tiled_max_error\":2.98023224e-08}\n========= ERROR SUMMARY: 0 errors\n"
+    },
+    "matmul_tail": {
+      "shape": [
+        23,
+        19,
+        37
+      ],
+      "naive_ms": 0.0521727987,
+      "tiled_ms": 0.0496947207,
+      "cublas_ms": 0.01667808,
+      "naive_max_error": 2.98023224e-08,
+      "tiled_max_error": 2.98023224e-08
+    }
+  },
+  "scope": "Real compiled native CUDA and cuBLAS; not CPU simulation"
+}

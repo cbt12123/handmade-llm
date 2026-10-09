@@ -17,7 +17,7 @@ from mdit_py_plugins.dollarmath import dollarmath_plugin
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'outputs' / 'review'
 OUT.mkdir(parents=True, exist_ok=True)
-DOCS = [ROOT / 'README.md', *sorted(ROOT.glob('第*部分*/*.md')), *sorted(ROOT.glob('assets/part05/**/*.md'))]
+DOCS = [ROOT / 'README.md', *sorted(ROOT.glob('第*部分*/*.md')), *sorted(ROOT.glob('assets/**/*.md'))]
 parser = MarkdownIt('commonmark', {'html': False}).enable('table').use(dollarmath_plugin)
 
 def slug(text):

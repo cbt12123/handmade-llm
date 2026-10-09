@@ -1,0 +1,42 @@
+{
+  "input_tokens": 512,
+  "vocabulary": 151936,
+  "all_positions_shape": [
+    1,
+    512,
+    151936
+  ],
+  "last_position_shape": [
+    1,
+    1,
+    151936
+  ],
+  "last_logits_max_error": 0.0078125,
+  "last_token_same": true,
+  "timings_ms": {
+    "all_positions": [
+      114.50072899992847,
+      104.05200299987882,
+      106.52143899983457,
+      101.6790440000932,
+      102.81260500005374,
+      101.98775599997134,
+      102.23456699986855,
+      100.24108300012813,
+      98.85522100012167
+    ],
+    "last_position": [
+      97.95788200017341,
+      95.62650200018652,
+      96.79194700015614,
+      92.81303200009461,
+      95.63165400004436,
+      92.05705199997283,
+      93.35341199994218,
+      90.94066900001962,
+      95.01977199988687
+    ]
+  },
+  "median_speedup": 1.0759294076183457,
+  "scope": "Separate prefill workflow shortcut; both RMSNorm inference variants above already use logits_to_keep=1."
+}

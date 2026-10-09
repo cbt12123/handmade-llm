@@ -1,0 +1,15 @@
+{
+  "n": 1003,
+  "threads": 256,
+  "blocks": 4,
+  "launched_threads": 1024,
+  "masked_threads": 21,
+  "rms_width": 1536,
+  "fp16_row_minimum_data_bytes": 9216,
+  "amdahl": {
+    "original_fraction": 0.12,
+    "operator_speedup": 4,
+    "overall_speedup": 1.0989010989010988
+  },
+  "scope": "Arithmetic model, not GPU measurement or proof of model speedup."
+}
