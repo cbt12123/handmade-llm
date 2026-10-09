@@ -96,10 +96,10 @@ FastAPI的lifespan负责启动和关闭阶段。启动成功后，模型和分�
 
 ## 18.7 启动服务与客户端
 
-在工作区根目录打开第一个VS Code终端，使用已准备的环境和模型路径：
+在工作区根目录打开第一个VS Code终端，使用运行指南中新建的 `handmade-llm` 环境和模型路径。复用已有环境时，将两个终端的激活命令都改为该环境名；作者已有环境名为 `vllm`：
 
 ```powershell
-conda activate vllm
+conda activate handmade-llm
 $env:LLM_MODEL_PATH = 'G:\models\qwen2_5_1.5b_instruct'
 python script/part04/18_server.py
 ```
@@ -107,7 +107,7 @@ python script/part04/18_server.py
 启动完成后，服务监听`127.0.0.1:8000`。第二个终端运行：
 
 ```powershell
-conda activate vllm
+conda activate handmade-llm
 python script/part04/18_client.py
 ```
 

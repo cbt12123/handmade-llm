@@ -1,7 +1,7 @@
 {
   "scope": "Offline engine tests with scripted model fixtures, not LLM success rate",
   "source_files": 19,
-  "chunks": 1074,
+  "chunks": 1075,
   "checks": {
     "lexical_search_and_no_match": true,
     "stale_index_rejected": true,

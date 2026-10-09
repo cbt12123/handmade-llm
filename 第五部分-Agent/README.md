@@ -34,10 +34,10 @@ python -m pip install requests==2.32.5 -i https://pypi.tuna.tsinghua.edu.cn/simp
 
 若已经有可用 requests，无需重新安装。清华镜像也可用于 Matplotlib、FastAPI 等普通 Python 包；GPU Torch 和容器镜像不能直接套用这个安装地址。镜像来源与第四部分保持一致。
 
-可选 HTTP 入口复用已有 vllm conda 环境的 FastAPI 与 uvicorn：
+可选 HTTP 入口使用第四部分中新建的 `handmade-llm` conda 环境，其中已有 FastAPI 与 uvicorn。若复用作者已有环境，可将激活命令改为 `conda activate vllm`：
 
 ```powershell
-conda activate vllm
+conda activate handmade-llm
 python -m uvicorn api:app --app-dir script/part05 --host 127.0.0.1 --port 8010 --workers 1
 ```
 

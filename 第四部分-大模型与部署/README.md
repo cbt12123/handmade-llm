@@ -53,6 +53,8 @@ python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl
 python -m pip install transformers==4.57.6 fastapi==0.135.1 uvicorn==0.41.0 requests==2.32.5 numpy==2.2.6 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
+后续章节的启动命令统一以 `handmade-llm` 为例。若复用本机已有的 `vllm` 环境，将对应激活命令换成 `conda activate vllm`；环境名称不会改变脚本或服务协议。
+
 清华PyPI镜像用于普通Python包；PyTorch CPU/CUDA轮子使用官方对应索引。已有模型时不需要Hub下载镜像。首次下载失败时先检查代理或模型平台连接，不能把Python包镜像当成模型权重镜像。
 
 当前基础模型为[Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)。已有完整权重时直接使用；没有时可明确执行：
