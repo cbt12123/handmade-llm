@@ -1,4 +1,4 @@
-"""Original figures for the learning-card story, generated from local digits."""
+"""Original figures for classification and sequence experiments, generated from local digits."""
 from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
@@ -26,11 +26,11 @@ data = load_digits()
 fig, axes = plt.subplots(1, 3, figsize=(11, 3.5))
 index = np.flatnonzero(data.target == 3)[0]
 axes[0].imshow(data.images[index], cmap='gray', vmin=0, vmax=16)
-axes[0].set_title('学习卡的手写编号：3'); axes[0].axis('off')
+axes[0].set_title('digits手写数字：3'); axes[0].axis('off')
 for ax in axes[1:]: ax.axis('off'); ax.set(xlim=(0, 1), ylim=(0, 1))
 box(axes[1], (.05, .45), .9, .35, '反馈：这道题还没理解')
 axes[1].text(.5, .2, '第12章：文字 → 复习状态', ha='center')
-box(axes[2], (.03, .45), .94, .35, '取卡 2 4 7 9 1\n复核 1 9 7 4 2', '#e5f4eb')
+box(axes[2], (.03, .45), .94, .35, '输入 2 4 7 9 1\n倒序 1 9 7 4 2', '#e5f4eb')
 axes[2].text(.5, .2, '第13章：受控序列生成', ha='center')
 save(fig, 'overview')
 
@@ -72,6 +72,6 @@ for i, (input_text, target) in enumerate(zip(inputs, targets)):
     box(ax, (i+.12, .5), .8, .65, target, '#eeeeee' if i<3 else '#e5f4eb')
     ax.annotate('', xy=(i+.52, 1.2), xytext=(i+.52, 1.6), arrowprops={'arrowstyle':'->'})
 ax.text(7.25, 1.97, '输入', va='center'); ax.text(7.25, .82, '目标', va='center')
-ax.text(.12, 2.65, '教学样例取3张卡；实际基础实验训练长度为5。')
+ax.text(.12, 2.65, '图中序列长度为3；实际基础实验训练长度为5。')
 ax.text(.12, .05, '从SEP所在位置开始计入目标损失；每个位置只读自己及之前的输入。')
 save(fig, 'teacher-forcing')

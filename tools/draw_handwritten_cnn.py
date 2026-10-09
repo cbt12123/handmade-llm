@@ -12,7 +12,7 @@ plt.rcParams['axes.unicode_minus'] = False
 
 fig, axes = plt.subplots(1, 3, figsize=(11, 3.5))
 arrays = [np.arange(1, 17).reshape(4, 4), np.array([[1, 0], [0, -1]]), np.full((3, 3), -5)]
-titles = ['输入：4×4像素', '同一张“小模板”：2×2', '输出：每格都是−5']
+titles = ['输入：4×4像素', '共享卷积核：2×2', '输出：每格都是−5']
 for ax, arr, title in zip(axes, arrays, titles):
     ax.imshow(arr, cmap='Blues', vmin=-5, vmax=16)
     for (row, col), value in np.ndenumerate(arr):
@@ -25,7 +25,7 @@ fig.tight_layout(); fig.savefig(ROOT/'images'/'part03-hand-cnn-window.png', dpi=
 
 fig, axes = plt.subplots(1, 3, figsize=(11, 3.5))
 arrays = [np.array([[1, 3], [2, 0]]), np.array([[0, 7], [0, 0]]), np.array([[1, 2, 1], [2, 4, 2], [1, 2, 1]])]
-titles = ['池化：最大值3的位置被记住', '上游梯度7：返回获胜位置', '重叠窗口：输入梯度需要累加']
+titles = ['池化：最大值3的位置被记住', '上游梯度7：返回最大值位置', '重叠窗口：输入梯度需要累加']
 for ax, arr, title in zip(axes, arrays, titles):
     ax.imshow(arr, cmap='Oranges')
     for (row, col), value in np.ndenumerate(arr):

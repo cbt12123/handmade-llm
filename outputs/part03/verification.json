@@ -32,10 +32,6 @@
     "causal prefix invariance",
     "masked attention",
     "free generation",
-    "learning-card integrated CLI",
-    "handwritten CNN input and all parameter derivatives"
-  ],
-  "additional_scripts_run_this_revision": [
-    "11_numpy_cnn.py"
+    "learning-card integrated CLI"
   ]
 }
