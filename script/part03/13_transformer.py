@@ -32,7 +32,7 @@ def main():
     for length in [5,3,7]:
         generator=torch.Generator().manual_seed(300+length); source=torch.randint(1,11,(128,length),generator=generator); expected=torch.cat([source.flip(1),torch.full((128,1),12)],1); prediction=generate(model,source)
         results[str(length)]={'exact_sequence_accuracy':float((prediction==expected).all(1).float().mean()),'token_accuracy':float((prediction==expected).float().mean())}
-        if length==5: examples=[{'source':source[i].tolist(),'expected':expected[i].tolist(),'generated':prediction[i].tolist()} for i in range(4)]
+        if length==5: examples=[{'source':source[i].tolist(),'source_digits':(source[i]-1).tolist(),'expected':expected[i].tolist(),'generated':prediction[i].tolist(),'generated_digits':[int(token)-1 for token in prediction[i].tolist() if 1<=int(token)<=10]} for i in range(4)]
     saved=torch.load(OUT/'13_transformer.pt',weights_only=True); restored=TinySequenceModel(**saved['config']); restored.load_state_dict(saved['model']); restored.eval()
     probe=vi[:2,:6]
     with torch.no_grad():
@@ -42,6 +42,6 @@ def main():
         assert attention.triu(1).abs().max().item()<1e-7
     fig,axes=plt.subplots(1,2,figsize=(10,4)); h=np.array(history); axes[0].plot(h[:,0],h[:,1],label='train'); axes[0].plot(h[:,0],h[:,2],label='valid'); axes[0].legend(); axes[0].set(xlabel='Step',ylabel='Cross entropy')
     axes[1].imshow(attention[0,0].numpy(),vmin=0,vmax=1,cmap='Blues'); axes[1].set(title='Head 0 attention',xlabel='Key position',ylabel='Query position'); fig.tight_layout(); fig.savefig(OUT/'13_training_attention.png',dpi=150); plt.close(fig)
-    report('13_report.json',{'task':'reverse symbols 1..10, SEP=11 EOS=12 PAD=0','train_length':5,'steps':1200,'generation':results,'examples':examples,'causal_prefix_check':True,'reload_equal':True,'best_valid_ce':best})
+    report('13_report.json',{'task':'reverse handwritten-card digit IDs; digit 0..9 maps to token 1..10; SEP=11 EOS=12 PAD=0','train_length':5,'steps':1200,'generation':results,'examples':examples,'causal_prefix_check':True,'reload_equal':True,'best_valid_ce':best})
 
 if __name__=='__main__': main()

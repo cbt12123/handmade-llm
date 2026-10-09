@@ -6,29 +6,36 @@
     "10_torch_training.py",
     "11_cnn.py",
     "12_text.py",
-    "13_transformer.py",
-    "12_real_sms.py",
-    "11_transfer_learning.py"
+    "13_transformer.py"
   ],
-  "local_links_checked": 58,
-  "python_examples_executed": 17,
+  "local_links_checked": 70,
+  "python_examples_executed": 31,
   "reports": [
     "08-report.json",
     "09-report.json",
     "10_report.json",
+    "11_numpy_report.json",
     "11_report.json",
     "11_transfer_report.json",
     "12_report.json",
     "12_sms_report.json",
-    "13_report.json"
+    "13_report.json",
+    "learning_card_demo.json"
   ],
   "checks": [
     "finite-difference gradient",
+    "NumPy/PyTorch gradient parity",
     "checkpoint reload",
     "resume one step",
     "CNN image prediction",
+    "3/8 NumPy classifier",
     "causal prefix invariance",
     "masked attention",
-    "free generation"
+    "free generation",
+    "learning-card integrated CLI",
+    "handwritten CNN input and all parameter derivatives"
+  ],
+  "additional_scripts_run_this_revision": [
+    "11_numpy_cnn.py"
   ]
 }

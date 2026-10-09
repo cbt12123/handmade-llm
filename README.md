@@ -19,35 +19,58 @@
 
 环境统一使用 **conda + VS Code**。第一部分使用 conda 的 `base` 环境，不设章末作品；通过短例子、随堂检查与参考答案确认理解。Python 语法示例只使用标准库，数组与绘图示例使用 NumPy、Matplotlib。
 
+第二部分继续使用`base`；第三部分使用独立的`handmade-ml`环境，安装、版本组合与镜像站见[第三部分运行指南](第三部分-机器学习与深度学习/README.md)。以下目录对应目前已写出的内容，第四部分及后续目录尚未建立。
+
 每个部分一个文件夹，章节为 Markdown 文件，图片集中保存在根目录 `images/`。在 VS Code 打开章节后，按 `Ctrl+Shift+V` 查看带图片的预览。
 
 ```text
-handmade-llm-normal/
+handmade-llm/                    # GitHub simple分支；本地编写目录为handmade-llm-normal
 ├── README.md
 ├── 第一部分-Python与计算基础/
 │   ├── 01-Python基础.md
 │   ├── 02-组织代码与数据处理.md
 │   └── 03-NumPy与数据可视化.md
-├── images/
-│   ├── part01-*.png
-│   └── part02-*.png
 ├── 第二部分-面向机器学习的数学基础/
 │   ├── README.md
 │   ├── 04-函数与微积分入门.md
 │   ├── 05-线性代数与向量计算.md
 │   ├── 06-概率统计与信息量.md
 │   └── 07-离散数学与算法思维.md
-├── script/part02/            # 四章的参考实验
-├── outputs/part02/           # 数值报告与实验图
+├── 第三部分-机器学习与深度学习/
+│   ├── README.md
+│   ├── 08-机器学习任务与模型评价.md
+│   ├── 09-模型如何学习与神经网络.md
+│   ├── 10-PyTorch训练与模型管理.md
+│   ├── 11-CNN与图像识别.md
+│   ├── 12-NLP与序列建模.md
+│   └── 13-注意力与Transformer.md
+├── images/                     # 所有正文插图与实验图
+│   ├── part01-*.png
+│   ├── part02-*.png
+│   ├── part03-*.png
+│   ├── part03-story-*.png
+│   └── part03-result-*.png
+├── script/
+│   ├── part02/                 # 四章数学参考实验
+│   └── part03/                 # 六章实验与学习卡演示
+├── data/part03/                # 可选短信缓存及来源说明
+├── outputs/
+│   ├── part02/                 # 数值报告与实验图
+│   ├── part03/                 # 模型、评价、演示与核验报告
+│   └── review/                 # 本地Markdown审阅页与截图
 └── tools/
     ├── draw_part01.py       # 基础教学插图的生成源码
     ├── draw_part01_extra.py # 数据处理与可视化插图
     ├── verify_part01.py     # 第一部分核验
     ├── draw_part02.py       # 数学教学插图
-    └── verify_part02.py     # 数学示例与章末产出核验
+    ├── verify_part02.py     # 数学示例与章末产出核验
+    ├── draw_part03.py       # 机器学习原理图
+    ├── draw_part03_story.py # 学习卡故事插图
+    ├── verify_part03.py     # 实验、短例子与演示核验
+    └── review_markdown.py   # Markdown结构与本地审阅页
 ```
 
-本次编写与核验环境：Windows、conda base、Python 3.12.4、Matplotlib 3.8.4。无需与作者的安装目录一致。
+第一、第二部分核验使用Windows、conda base、Python 3.12.4、Matplotlib 3.8.4；第三部分使用Python 3.12.15、PyTorch 2.5.1 CPU等固定版本，完整记录见该部分目录。无需与作者的安装目录一致。
 
 ## 第一部分章节
 
@@ -74,3 +97,7 @@ handmade-llm-normal/
 13. [注意力与Transformer](第三部分-机器学习与深度学习/13-注意力与Transformer.md)
 
 第三部分使用独立的`handmade-ml`环境（conda + VS Code），基础实验全部可在CPU离线运行。各章有参考脚本和验收要求；真实短信和预训练ResNet作为可选联网扩展。脚本位于`script/part03/`，报告和模型位于`outputs/part03/`，图片集中位于`images/`。详见[第三部分运行指南](第三部分-机器学习与深度学习/README.md)。
+
+六章由“自习室学习卡整理助手”串联：辨认编号、理解学习机制、保存可复用模型、读取图像与学习反馈，再练习受控序列生成。最后提供命令行演示，把已有模块连接起来。各章区分真实数据、手算示例和辅助数据，避免把故事中的应用目标与当前小模型的能力混为一谈。
+
+第11章新增“宝宝巴士”手写CNN路线：从一个窗口开始，用NumPy实现卷积与池化的正向、反向，再训练真实手写数字模型。正文用比喻说明直觉，同时给出对应公式、数值核对和完整代码；原有PyTorch版本继续用于更深的模型与图片演示。

@@ -1,5 +1,5 @@
 {
-  "task": "reverse symbols 1..10, SEP=11 EOS=12 PAD=0",
+  "task": "reverse handwritten-card digit IDs; digit 0..9 maps to token 1..10; SEP=11 EOS=12 PAD=0",
   "train_length": 5,
   "steps": 1200,
   "generation": {
@@ -25,6 +25,13 @@
         6,
         8
       ],
+      "source_digits": [
+        5,
+        7,
+        9,
+        5,
+        7
+      ],
       "expected": [
         8,
         6,
@@ -40,6 +47,13 @@
         8,
         6,
         12
+      ],
+      "generated_digits": [
+        7,
+        5,
+        9,
+        7,
+        5
       ]
     },
     {
@@ -50,6 +64,13 @@
         2,
         9
       ],
+      "source_digits": [
+        6,
+        4,
+        8,
+        1,
+        8
+      ],
       "expected": [
         9,
         2,
@@ -65,6 +86,13 @@
         5,
         7,
         12
+      ],
+      "generated_digits": [
+        8,
+        1,
+        8,
+        4,
+        6
       ]
     },
     {
@@ -75,6 +103,13 @@
         6,
         6
       ],
+      "source_digits": [
+        0,
+        0,
+        1,
+        5,
+        5
+      ],
       "expected": [
         6,
         6,
@@ -90,6 +125,13 @@
         1,
         1,
         12
+      ],
+      "generated_digits": [
+        5,
+        5,
+        1,
+        0,
+        0
       ]
     },
     {
@@ -100,6 +142,13 @@
         6,
         3
       ],
+      "source_digits": [
+        4,
+        2,
+        4,
+        5,
+        2
+      ],
       "expected": [
         3,
         6,
@@ -115,6 +164,13 @@
         3,
         5,
         12
+      ],
+      "generated_digits": [
+        2,
+        5,
+        4,
+        2,
+        4
       ]
     }
   ],

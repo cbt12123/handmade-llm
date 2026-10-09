@@ -1,0 +1,31 @@
+{
+  "image_predicted_digit": 5,
+  "feedback": "这道题不懂需要复习",
+  "feedback_predicted_label": 0,
+  "feedback_label_meaning": "建议复习",
+  "unknown_character_count": 0,
+  "input_digits": [
+    2,
+    4,
+    7,
+    9,
+    1
+  ],
+  "generated_token_ids": [
+    2,
+    10,
+    8,
+    5,
+    3,
+    12
+  ],
+  "generated_digits": [
+    1,
+    9,
+    7,
+    4,
+    2
+  ],
+  "reversal_exact_including_eos": true,
+  "limitations": "Three independent teaching models; the feedback model has only 12 training examples. Reversal length changes may fail. No image-text joint learning."
+}

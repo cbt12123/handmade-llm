@@ -1,5 +1,6 @@
 """Two-layer NumPy MLP: gradient check, independent evaluation, reload."""
 from sklearn.datasets import make_moons
+from sklearn.datasets import load_digits
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from _common import np, plt, OUT, SEED, split_indices, metrics, report, curves
@@ -16,6 +17,48 @@ def loss_grad(x,y,p):
     dz=((prob-y)/len(y))[:,None]
     dh=(dz@p["W2"].T)*(1-hidden**2)
     return loss,{"W2":hidden.T@dz,"b2":dz.sum(axis=0),"W1":x.T@dh,"b1":dh.sum(axis=0)}
+
+def digits_experiment():
+    """Main story: distinguish handwritten 3 (label 0) from 8 (label 1)."""
+    data = load_digits()
+    selected = np.isin(data.target, [3, 8])
+    raw = data.data[selected].astype(np.float64)
+    labels = (data.target[selected] == 8).astype(np.int64)
+    train, valid, test = split_indices(labels)
+    scaler = StandardScaler().fit(raw[train])
+    x = scaler.transform(raw)
+    rng = np.random.default_rng(SEED)
+    parameters = {
+        "W1": rng.normal(0, 0.12, (64, 16)), "b1": np.zeros(16),
+        "W2": rng.normal(0, 0.12, (16, 1)), "b2": np.zeros(1),
+    }
+    best_loss = float("inf")
+    best = None
+    history = {key: [] for key in ["train_loss", "valid_loss", "train_acc", "valid_acc"]}
+    for step in range(1000):
+        _, gradients = loss_grad(x[train], labels[train], parameters)
+        for name in parameters:
+            parameters[name] -= 0.05 * gradients[name]
+        if step % 10 == 0:
+            train_loss = loss_grad(x[train], labels[train], parameters)[0]
+            valid_loss = loss_grad(x[valid], labels[valid], parameters)[0]
+            values = [train_loss, valid_loss]
+            values += [float(np.mean((forward(x[indices], parameters)[2] >= .5) == labels[indices])) for indices in [train, valid]]
+            for key, value in zip(history, values):
+                history[key].append(value)
+            if valid_loss < best_loss:
+                best_loss = valid_loss
+                best = {name: array.copy() for name, array in parameters.items()}
+    prediction = forward(x[test], best)[2] >= .5
+    np.savez(OUT / "09-digits-model.npz", **best, mean=scaler.mean_, scale=scaler.scale_)
+    with np.load(OUT / "09-digits-model.npz") as saved:
+        restored_x = (raw[test] - saved["mean"]) / saved["scale"]
+        restored = {name: saved[name] for name in best}
+        assert np.array_equal(prediction, forward(restored_x, restored)[2] >= .5)
+    curves(history, "09-digits-training.png")
+    return {"classes": {"0": 3, "1": 8}, "split_sizes": [len(train), len(valid), len(test)],
+            "test": metrics(labels[test], prediction), "reload_equal": True,
+            "best_validation_loss": best_loss}
 
 def main():
     x,y=make_moons(n_samples=600,noise=.18,random_state=SEED)
@@ -50,6 +93,7 @@ def main():
     xx,yy=np.meshgrid(np.linspace(-2.5,2.5,160),np.linspace(-2.5,2.5,160)); grid=np.column_stack([xx.ravel(),yy.ravel()]); proba=forward(grid,best)[2].reshape(xx.shape)
     fig,ax=plt.subplots(figsize=(6,5)); ax.contourf(xx,yy,proba,levels=20,cmap="RdBu",alpha=.6); ax.scatter(x[test,0],x[test,1],c=y[test],cmap="RdBu",s=15)
     ax.set(title="NumPy MLP: test data and decision probability",xlabel="Scaled feature 1",ylabel="Scaled feature 2"); fig.tight_layout(); fig.savefig(OUT/"09-boundary.png",dpi=150); plt.close(fig)
-    report("09-report.json",{"gradient_max_error":float(max(errors)),"split_sizes":[len(train),len(valid),len(test)],"baseline_test":metrics(y[test],baseline.predict(x[test])),"mlp_test":metrics(y[test],prediction),"best_validation_loss":best_loss,"reload_identical":True})
+    digits_result = digits_experiment()
+    report("09-report.json",{"gradient_max_error":float(max(errors)),"split_sizes":[len(train),len(valid),len(test)],"baseline_test":metrics(y[test],baseline.predict(x[test])),"mlp_test":metrics(y[test],prediction),"best_validation_loss":best_loss,"reload_identical":True,"digits_binary":digits_result,"moons_role":"auxiliary two-dimensional boundary illustration"})
 
 if __name__=="__main__": main()

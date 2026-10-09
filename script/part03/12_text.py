@@ -17,9 +17,9 @@ class TextRNN(nn.Module):
 def main():
     seed()
     # Explicit splits: a small teaching set, not a real-world performance estimate.
-    train=[('这部电影很好看',1),('剧情精彩值得推荐',1),('演员表现很好',1),('我很喜欢这个故事',1),('画面漂亮非常喜欢',1),('故事精彩令人开心',1),('这部电影很难看',0),('剧情无聊不推荐',0),('演员表现很差',0),('我很讨厌这个故事',0),('画面糟糕非常失望',0),('故事无聊令人失望',0)]
-    valid=[('电影精彩我很喜欢',1),('剧情糟糕我很失望',0)]
-    test=[('故事很好值得推荐',1),('演员精彩令人开心',1),('电影无聊不推荐',0),('故事很差非常失望',0)]
+    train=[('这道题我已经理解',1),('公式清楚我会计算',1),('步骤明白可以独立完成',1),('我已经学会这个方法',1),('例子清楚我已经懂了',1),('推导明白可以继续学习',1),('这道题我还没有理解',0),('公式不懂需要重新学习',0),('步骤不明白需要帮助',0),('我还不会这个方法',0),('例子看不懂需要复习',0),('推导不清楚我很困惑',0)]
+    valid=[('这道题已经明白可以完成',1),('这道题不懂需要复习',0)]
+    test=[('公式明白我已经学会',1),('方法清楚可以独立计算',1),('公式不明白我还不会',0),('方法不懂需要帮助',0)]
     text=[s for s,_ in train]; labels=torch.tensor([y for _,y in train])
     vocab={'<PAD>':0,'<UNK>':1}
     for char in sorted(set(''.join(text))): vocab[char]=len(vocab)
@@ -47,6 +47,6 @@ def main():
         choices=list(counts[current]); probability=np.array([counts[current][c] for c in choices],float); probability/=probability.sum(); current=rng.choice(choices,p=probability)
         if current=='$': break
         generated+=current
-    report('12_report.json',{'dataset':'explicit tiny synthetic Chinese teaching set','split_sizes':[len(train),len(valid),len(test)],'tfidf_test':metrics([y for _,y in test],baseline.predict(vectorizer.transform([s for s,_ in test]))),'gru_test':metrics([y for _,y in test],prediction),'generated_bigram':generated,'reload_equal':True,'vocab_size':len(vocab)})
+    report('12_report.json',{'dataset':'explicit tiny synthetic Chinese learning-feedback set','label_meaning':{'0':'needs review','1':'self-reported understood'},'split_sizes':[len(train),len(valid),len(test)],'tfidf_test':metrics([y for _,y in test],baseline.predict(vectorizer.transform([s for s,_ in test]))),'gru_test':metrics([y for _,y in test],prediction),'test_examples':[{'text':s,'label':y,'prediction':int(p)} for (s,y),p in zip(test,prediction)],'generated_bigram':generated,'reload_equal':True,'vocab_size':len(vocab)})
 
 if __name__=='__main__': main()

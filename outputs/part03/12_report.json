@@ -1,5 +1,9 @@
 {
-  "dataset": "explicit tiny synthetic Chinese teaching set",
+  "dataset": "explicit tiny synthetic Chinese learning-feedback set",
+  "label_meaning": {
+    "0": "needs review",
+    "1": "self-reported understood"
+  },
   "split_sizes": [
     12,
     2,
@@ -20,12 +24,12 @@
     ]
   },
   "gru_test": {
-    "accuracy": 0.75,
-    "macro_f1": 0.7333333333333334,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
     "confusion_matrix": [
       [
-        1,
-        1
+        2,
+        0
       ],
       [
         0,
@@ -33,9 +37,31 @@
       ]
     ]
   },
-  "generated_bigram": "画面糟糕非常失望",
+  "test_examples": [
+    {
+      "text": "公式明白我已经学会",
+      "label": 1,
+      "prediction": 1
+    },
+    {
+      "text": "方法清楚可以独立计算",
+      "label": 1,
+      "prediction": 1
+    },
+    {
+      "text": "公式不明白我还不会",
+      "label": 0,
+      "prediction": 0
+    },
+    {
+      "text": "方法不懂需要帮助",
+      "label": 0,
+      "prediction": 0
+    }
+  ],
+  "generated_bigram": "例子看不懂需要复习",
   "reload_equal": true,
-  "vocab_size": 48,
+  "vocab_size": 55,
   "environment": {
     "python": "3.12.15",
     "numpy": "1.26.4"

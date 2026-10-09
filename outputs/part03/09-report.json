@@ -35,6 +35,34 @@
   },
   "best_validation_loss": 0.16699769720178287,
   "reload_identical": true,
+  "digits_binary": {
+    "classes": {
+      "0": 3,
+      "1": 8
+    },
+    "split_sizes": [
+      213,
+      72,
+      72
+    ],
+    "test": {
+      "accuracy": 0.9861111111111112,
+      "macro_f1": 0.9861084314103801,
+      "confusion_matrix": [
+        [
+          36,
+          1
+        ],
+        [
+          0,
+          35
+        ]
+      ]
+    },
+    "reload_equal": true,
+    "best_validation_loss": 0.056125305222176576
+  },
+  "moons_role": "auxiliary two-dimensional boundary illustration",
   "environment": {
     "python": "3.12.15",
     "numpy": "1.26.4"

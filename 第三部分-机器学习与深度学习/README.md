@@ -1,67 +1,110 @@
 # 第三部分：机器学习与深度学习
 
-前两部分提供了Python、数组、导数、矩阵、概率与序列的基础。本部分把这些知识连接成完整实验：任务与评价→学习机制→训练工程→CNN→NLP→Transformer。遇到公式先检查符号与形状，再算小例子，不必先背术语。
+前两部分准备了Python、数组、导数、矩阵、概率和序列。本部分将它们连接起来，为自习室做一个“学习卡整理助手”：读出手写编号，判断一句学习反馈表达的状态，再用一个受控任务练习编号序列生成。
 
-| 章节 | 学完能做什么 | 章末产出 |
-|---|---|---|
-| [8 机器学习任务与模型评价](08-机器学习任务与模型评价.md) | 正确划分、建立基线、评价分类 | digits分类器与测试报告 |
-| [9 模型如何学习与神经网络](09-模型如何学习与神经网络.md) | 推导并检查两层网络梯度 | NumPy分类器、梯度检查、边界图 |
-| [10 PyTorch训练与模型管理](10-PyTorch训练与模型管理.md) | 自动求导、训练、加载与恢复 | 最佳权重、续训检查点、曲线 |
-| [11 CNN与图像识别](11-CNN与图像识别.md) | 计算卷积形状、训练与图片推理 | CNN、特征图、自备图预测 |
-| [12 NLP与序列建模](12-NLP与序列建模.md) | 编码文本、比较基线、解释序列生成 | 中文教学分类与生成、真实短信扩展 |
-| [13 注意力与Transformer](13-注意力与Transformer.md) | 理解QKV、掩码与自由生成 | 因果Transformer、注意力图、长度测试 |
+![学习卡整理助手的三个教学任务](../images/part03-story-overview.png)
 
-## 怎么读
+故事说明为什么学当前内容，实验让每一步可以检查。图像来自真实digits样本，反馈来自列明的教学句子，倒序任务由随机数字生成。最后把三个独立模块接成命令行演示；它们没有联合训练，不是已经完成的通用学习助手。
 
-第一次按章节顺序，优先完成正文小例子与章末基础脚本。决策树、Word2Vec、HMM、im2col和迁移学习标为选读或扩展，不是继续阅读的门槛。第一次看到LSTM或Transformer组合公式时，沿每个局部计算走，不需要一次记住全式。
+## 六章怎样接成一条路
 
-每章的目标与验收要求帮助你确定“目前是否学会”。如果向AI提问，建议贴具体输入形状、代码和报错，要求它解释当前步骤；拿到解释后自己运行一个小例子核对。
+| 章节 | 小林遇到的问题 | 本章产出 |
+| --- | --- | --- |
+| [8 机器学习任务与模型评价](08-机器学习任务与模型评价.md) | 怎样确认编号读对了，而不是记住训练图片 | 基线、独立划分、可加载分类器与评价 |
+| [9 模型如何学习与神经网络](09-模型如何学习与神经网络.md) | 3与8读错以后，参数为什么会改变 | NumPy 3/8分类器、逐层推导与梯度检查 |
+| [10 PyTorch训练与模型管理](10-PyTorch训练与模型管理.md) | 恢复十类任务，并跨天继续使用 | 自动求导、最佳权重、训练检查点与曲线 |
+| [11 CNN与图像识别](11-CNN与图像识别.md) | 怎样利用相邻笔画并读自备图 | NumPy手写CNN、梯度核对、特征图与图片预测 |
+| [12 NLP与序列建模](12-NLP与序列建模.md) | “会了”和“还不会”怎样进入模型 | TF-IDF与GRU对照、词表、字符生成 |
+| [13 注意力与Transformer](13-注意力与Transformer.md) | 怎样按格式生成复核编号并检查失败 | 因果模型、自由生成与整合演示 |
 
-## 运行方式
+第9章双月数据是用于画二维边界的辅助实验台，不是从图像提取的真实坐标。真实短信与预训练ResNet作为可选扩展，分别练习真实文本评价与迁移学习，不替代故事主线。
 
-环境统一conda+VS Code，安装与镜像说明见[10.1](10-PyTorch训练与模型管理.md#101-使用conda与vs-code建立独立环境)。第三部分独立环境叫`handmade-ml`，第一、第二部分的base不受影响。在VS Code打开工作区根目录并选择此解释器，然后运行：
+## 怎样读公式与代码
+
+局部公式先给目标、符号与数值例子，再推导；反向传播、门控与注意力沿计算顺序组合。先问输入是什么、输出给谁、每个轴表示什么，再跟踪一张卡或一条反馈。
+
+初读优先走主线，决策树、Word2Vec、HMM、im2col和迁移学习可以回头再读，不作为下一章门槛。每章有故事目标、手算与形状练习、完整参考脚本、产出和验收。
+
+章内短例子有的共享前面的变量，请按章节顺序运行；完整脚本可以独立运行。向AI提问时可以贴具体形状、当前公式与报错，要求只展开卡住的一步；理解后自己改一个数字核对。
+
+## 环境与基础实验
+
+统一使用conda + VS Code。第三部分建立独立`handmade-ml`环境，前两部分继续使用base。安装、镜像与CPU版本见[第10章环境设置](10-PyTorch训练与模型管理.md#101-使用conda与vs-code建立独立环境)。按顺序完成安装，选择同名解释器，再打开工作区根目录终端。
 
 ```powershell
 conda activate handmade-ml
 python script/part03/08_sklearn_task.py
 python script/part03/09_numpy_network.py
 python script/part03/10_torch_training.py
+python script/part03/11_numpy_cnn.py
 python script/part03/11_cnn.py
 python script/part03/12_text.py
 python script/part03/13_transformer.py
 ```
 
-基础实验无需下载数据或预训练权重，均可使用CPU。参考实现放在`script/part03/`，运行结果放在`outputs/part03/`，正文引用的图片统一在根目录`images/`。图片原始生成源码为`tools/draw_part03.py`；实验图由训练脚本生成，核验工具复制到`images/`供正文引用。
+基础实验全部可用CPU，无需下载数据或预训练权重。脚本在`script/part03/`，模型和报告在`outputs/part03/`，正文引用图片统一在根目录`images/`。
+
+## 把三个模块接到同一个演示
+
+基础脚本运行后，加载已经保存的CNN、反馈GRU与Transformer：
+
+```powershell
+python script/part03/learning_card_demo.py --image outputs/part03/11_example_digit.png --feedback "这道题不懂需要复习" --digits 2 4 7 9 1
+```
+
+输出包含图片预测、反馈状态、未知字数、生成token、解码编号和完整正确性。图片与编号串是分别提供的，程序没有自动识别一组照片或整张卡上的文字；三个模块没有图文联合训练。
+
+换自己的图片前，先按第11章准备黑底白字、居中的单个数字。反馈只有12条训练句，“自述已理解”只是句子分类，不是实际学习能力测量。
+
+## 插图与核验
 
 ```powershell
 python tools/draw_part03.py
+python tools/draw_part03_story.py
+python tools/draw_handwritten_cnn.py
 python tools/verify_part03.py
+python tools/review_markdown.py
 ```
 
-完整实验已运行后，如果仅修改了正文或图片引用，可使用`python tools/verify_part03.py --check-only`执行正文短例子、检查本地链接并复查现有报告，不重新训练模型。
+前三条生成插图；核验工具运行基础实验、短例子、加载检查与整合演示，再把实验图复制到`images/`。只修改正文时可用`python tools/verify_part03.py --check-only`复查现有产出，避免重新训练。
 
-可选真实数据与迁移学习会首次联网下载：
+最后一条检查Markdown结构并生成`outputs/review/`下的本地审阅页。VS Code可用`Ctrl+Shift+V`直接预览。当前修订未发布到GitHub，本地审阅样式可能有差异，不能代替发布后的页面检查。
+
+只在需要生成HTML审阅页时安装两个附加依赖；课程实验不需要它们：
+
+```powershell
+python -m pip install markdown-it-py==3.0.0 mdit-py-plugins==0.4.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+首次生成审阅页还会下载MathJax脚本，缓存后可离线使用。正文公式使用GitHub支持的`math`块与受保护的行内公式写法，表格前保留空行。[GitHub公式写法](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions) · [GitHub表格写法](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables)
+
+## 可选真实数据与迁移学习
 
 ```powershell
 python script/part03/12_real_sms.py
 python script/part03/11_transfer_learning.py
-python tools/verify_part03.py --extras
 ```
 
-`--extras`包含基础脚本并重新运行两个扩展，不必把以上三条都重复执行。短信缓存位于`data/part03/`，官方ResNet权重缓存由torch管理。原始短信来源与许可写在缓存目录README中。[UCI短信数据](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) · [官方ResNet18](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.resnet18.html)
+首次联网下载，后续使用缓存。短信保存在`data/part03/`并附来源和许可，ResNet缓存由torch管理；失败会报错，不会换成教学句子。[UCI短信数据](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) · [官方ResNet18](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.resnet18.html)
 
-## 数据与结论的边界
+完整基础与扩展核验可直接运行`python tools/verify_part03.py --extras`，不必先重复运行上面两条。
 
-真实digits样本有1797张8×8图，不能当作MNIST或通用视觉能力。双月数据与中文小句子都是教学数据；中文小句子分数只检查实现。Transformer倒序任务训练长度固定，专门报告改变长度后的失败，不能据此称模型拥有通用推理能力。
+## 怎样看待本次实验成绩
 
-本部分使用固定随机种子与CPU；不同库版本和设备可能造成数值差异。各章模型按验证集选择，再报告测试集结果。重复运行是复现已固定的实验；如果据测试成绩修改配置，原测试集就失去了最终独立评价用途。
+MLP与CNN测试准确率约96.4%和96.1%；结构、轮数等也不同，没有多种子显著性比较，不能凭差异宣称谁更好。手写与自动求导最大差约`6.9e-18`，说明该数值检查通过，不保证所有未来代码都正确。
 
-全部章节为初稿，已通过程序与链接核验；初学者实际阅读体验仍需后续读者反馈验证。第四部分将在这些产出的基础上进入大模型与部署。
+真实短信去重后5159条，测试spam召回率约93.0%、F1约92.2%。中文小数据分数只检查教学实现。倒序模型训练长度5的测试整串正确率100%，长度3与7均为0：固定布局成功不代表学会通用倒序算法。
 
-## 本机核验记录
+本机使用Windows、Python 3.12.15、NumPy 1.26.4、Matplotlib 3.8.4、scikit-learn 1.5.2、PyTorch 2.5.1+cpu与torchvision 0.20.1+cpu。依赖见`outputs/part03/requirements-verified.txt`，实际成绩见各章JSON，检查记录见`verification.json`。
 
-本轮使用Windows、Python 3.12.15、NumPy 1.26.4、Matplotlib 3.8.4、scikit-learn 1.5.2、PyTorch 2.5.1+cpu与torchvision 0.20.1+cpu。完整依赖记录在`outputs/part03/requirements-verified.txt`；主命令的直接依赖版本已固定，其他依赖由安装工具解析。
+修订增加了故事、手算、逐步推导与接口说明。程序核验和读者理解是不同证据，阅读体验仍需试读反馈。第四部分将沿用输入、推理与评价基础，进入大模型与部署。
 
-本次MLP测试准确率约96.4%，CNN约96.1%；二者使用相同数据划分，但本轮没有做多随机种子显著性比较，因此不能凭这个差异宣称哪类架构更优。手写梯度与自动求导最大绝对差约`6.9e-18`。真实短信测试的spam召回率约93.0%，F1约92.2%，去重后的样本数为5159。
+## 宝宝巴士怎样开：先有落脚点，再往上走
 
-具体成绩、自由生成样例和通过的检查，以各章JSON与`outputs/part03/verification.json`为准；这是一轮固定实验的记录，不是对未来训练结果的保证。
+本部分借鉴Tariq Rashid的《Python神经网络编程》（Make Your Own Neural Network）的教学方法：从能手算的小例子开始，逐步扩展可运行代码，再回头检查已经完成什么。该书手写的是全连接网络；我们的第11章把这种节奏用于手写CNN，插图、故事和实现均自行编写。
+
+比喻是扶手，公式和代码是台阶。每遇到一个比喻，都要能指出它对应的数值或运算：旋钮对应权重，编号牌对应token ID，计算账本对应自动求导依赖关系。不要把网络的“记忆”“关注”直接当成人类思考。
+
+第11章先完成NumPy路线：一格卷积、滑动窗口、池化、分类头、手写反向传播、参数更新。然后用PyTorch重走一遍。导数先用中心差分检查，再与同结构框架结果逐项核对；小网络的训练成绩另看验证与测试报告。
+
+卡住时按这个顺序排查：输入数值 → 数组形状 → 当前一步输出 → 公式中的符号。每次只解决一站，自己改一个数字验证理解，再继续下一站。你不需要第一次就记住所有术语。
