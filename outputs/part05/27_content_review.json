@@ -1,0 +1,13 @@
+{
+  "scope": "Author review of selected real outputs; not a full human evaluation benchmark",
+  "case_id": "explain-gd",
+  "automatic_check_passed": true,
+  "content_fully_correct": false,
+  "issue": "生成文本将学习率大小与向前或向后移动方向混为一谈，并夸大学习率对避开局部极小值的保证。",
+  "correction": "在正学习率下，参数更新方向为负梯度，学习率控制步长；梯度下降一般不能保证找到全局最小值。",
+  "formula": "delta_w = -alpha * gradient(L), alpha > 0",
+  "implication": "JSON合法、检索命中、真实引用及术语出现均不能代替教学内容检查。原始模型输出保持不变。",
+  "reviewed_report_sha256": "11067c86d03e730be8b4a8a743e5e74dcde8ae2e3a5d673369bf9f26e30911b3",
+  "quoted_problematic_sentence": "学习率决定了我们如何响应梯度的方向，即是否向前移动一小步（大学习率）还是向后移动一大步（小学习率）。",
+  "structured_output_policy": "练习、评分和记录类最终文本只展示工具确定事实；原始模型文字保留供诊断。解释类仍需内容核对。"
+}

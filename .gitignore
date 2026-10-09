@@ -6,3 +6,12 @@ tools/*preview.png
 outputs/review/
 models/
 outputs/part04/server*.log
+outputs/part05/*.sqlite3*
+outputs/part05/last_task.json
+outputs/part05/course_index.json
+outputs/part05/semantic_*
+outputs/part05/server*.log
+outputs/part05/27_evaluation_intermediate.json
+outputs/part05/27_evaluation_contract.json
+outputs/part05/27_evaluation_budget.json
+outputs/part05/27_evaluation_prompt.json

@@ -1,0 +1,31 @@
+{
+  "scope": "Real model-backed local API, temporary database, one accepted task and one busy response",
+  "checks": {
+    "health": true,
+    "empty_request_422": true,
+    "invalid_learner_422": true,
+    "single_worker_busy_429": true,
+    "real_grade_and_record": true,
+    "service_alive_after_task": true
+  },
+  "response": {
+    "task": "2a5234abb7214008883022a65c2a0558",
+    "status": "done",
+    "answer": "确定评分：\ngd-01：错误。导数为 2w=4；w_new=2-0.1×4=1.6。\n\n记录状态：已保存 gd-01",
+    "questions": [],
+    "grades": [
+      {
+        "question_id": "gd-01",
+        "answer": "2",
+        "correct": false,
+        "feedback": "导数为 2w=4；w_new=2-0.1×4=1.6。"
+      }
+    ],
+    "recorded": [
+      "gd-01"
+    ],
+    "progress": null,
+    "sources": [],
+    "errors": []
+  }
+}

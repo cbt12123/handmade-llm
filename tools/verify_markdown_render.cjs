@@ -37,7 +37,7 @@ const review = path.join(root, 'outputs', 'review');
       if (overflow) result.errors.push({file,error:'Mobile horizontal page overflow'});
       await page.setViewportSize({width:1280,height:1050});
     }
-    if (/^(14|18|19)-/.test(file)) {
+    if (/^(14|18|19|20|24|26|27)-/.test(file)) {
       const number = file.slice(0,2);
       await page.screenshot({path:path.join(review,number+'-desktop.png')});
       await page.setViewportSize({width:390,height:844});

@@ -1,0 +1,5 @@
+[
+  {"name":"explain","description":"查询教程，解释概念并给出出处","tools":["search"]},
+  {"name":"practice","description":"从题库选择练习，不提前展示答案","tools":["search","quiz"]},
+  {"name":"review","description":"按题号检查答案；授权时保存复习记录","tools":["grade","record","progress"]}
+]

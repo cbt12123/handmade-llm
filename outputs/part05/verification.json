@@ -1,0 +1,22 @@
+{
+  "scope": "Offline engine tests with scripted model fixtures, not LLM success rate",
+  "source_files": 19,
+  "chunks": 1074,
+  "checks": {
+    "lexical_search_and_no_match": true,
+    "stale_index_rejected": true,
+    "registry_and_skill_gate": true,
+    "cannot_change_submitted_answer": true,
+    "numeric_grading": true,
+    "missing_user_answer_not_invented": true,
+    "verified_results_render_without_model_prose": true,
+    "unauthorized_write_rejected": true,
+    "citation_membership_and_presence": true,
+    "resume_no_duplicate_and_learner_isolation": true,
+    "workflow_cannot_skip_required_tool": true,
+    "write_and_checkpoint_transaction_rollback": true,
+    "bounded_loop": true,
+    "invalid_model_action_is_failure": true,
+    "no_shell_capability": true
+  }
+}

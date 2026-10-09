@@ -4,7 +4,7 @@
 
 机器学习部分对局部公式先给定义、符号和数值例子，再展开推导；需要多个模块组合的公式则逐步建立。每章配参考实验与验收要求，帮助读者把知识转化为实际产出。
 
-目前已完成第一至第四部分的初稿。第五部分及第六部分尚未编写。
+目前已完成第一至第五部分的初稿。第六部分尚未编写。
 
 | 部分 | 内容 | 状态 |
 |---|---|---|
@@ -12,14 +12,14 @@
 | 第二部分 | 面向机器学习的数学基础 | [章节与运行指南](第二部分-面向机器学习的数学基础/README.md) |
 | 第三部分 | 机器学习与深度学习 | [章节与运行指南](第三部分-机器学习与深度学习/README.md) |
 | 第四部分 | 大模型与部署 | [章节与运行指南](第四部分-大模型与部署/README.md) |
-| 第五部分 | Agent 应用分支 | 待编写 |
+| 第五部分 | Rules、Skills、Knowledge 与课程学习 Agent | [章节与运行指南](第五部分-Agent/README.md) |
 | 第六部分 | NVIDIA 算子开发分支 | 待编写 |
 
 ## 阅读与运行
 
 环境统一使用 **conda + VS Code**。第一部分使用 conda 的 `base` 环境，不设章末作品；通过短例子、随堂检查与参考答案确认理解。Python 语法示例只使用标准库，数组与绘图示例使用 NumPy、Matplotlib。
 
-第二部分继续使用`base`；第三部分使用独立的`handmade-ml`环境，安装、版本组合与镜像站见[第三部分运行指南](第三部分-机器学习与深度学习/README.md)。以下目录对应目前已写出的内容，第五部分及第六部分目录尚未建立。
+第二部分继续使用`base`；第三部分使用独立的`handmade-ml`环境，安装、版本组合与镜像站见[第三部分运行指南](第三部分-机器学习与深度学习/README.md)。第五部分的Agent进程继续使用base，通过HTTP复用第四部分的模型与WSL镜像；目录对应目前已写出的内容，第六部分目录尚未建立。
 
 每个部分一个文件夹，章节为 Markdown 文件，图片集中保存在根目录 `images/`。在 VS Code 打开章节后，按 `Ctrl+Shift+V` 查看带图片的预览。
 
@@ -52,22 +52,36 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
 │   ├── 17-资源预算量化与参数适配.md
 │   ├── 18-HTTP服务与部署实践.md
 │   └── 19-提示设计评价与部署交付.md
+├── 第五部分-Agent/
+│   ├── README.md
+│   ├── 20-Agent的组成与运行过程.md
+│   ├── 21-编写第一个Agent循环.md
+│   ├── 22-Rules规则与执行边界.md
+│   ├── 23-Skills让任务方法可以复用.md
+│   ├── 24-Knowledge读取检索与引用.md
+│   ├── 25-状态记忆与多步骤任务.md
+│   ├── 26-组装完整课程学习助手.md
+│   └── 27-测试评价与扩展.md
+├── assets/part05/              # 规则、技能、题库与来源约定全文
 ├── images/                     # 所有正文插图与实验图
 │   ├── part01-*.png
 │   ├── part02-*.png
 │   ├── part03-*.png
 │   ├── part03-story-*.png
 │   ├── part03-result-*.png
-│   └── part04-*.png
+│   ├── part04-*.png
+│   └── part05-*.png
 ├── script/
 │   ├── part02/                 # 四章数学参考实验
 │   ├── part03/                 # 六章实验与模型演示
-│   └── part04/                 # 本地LLM、缓存、HTTP服务与评价
-├── data/                       # part03短信与part04评价用例
+│   ├── part04/                 # 本地LLM、缓存、HTTP服务与评价
+│   └── part05/                 # 手写Agent、工具、知识、记录与评价
+├── data/                       # part03短信与part04、part05评价用例
 ├── outputs/
 │   ├── part02/                 # 数值报告与实验图
 │   ├── part03/                 # 模型、评价、演示与核验报告
 │   ├── part04/                 # 配置、缓存、部署、评价与manifest
+│   ├── part05/                 # Agent评价与恢复核验；个人数据忽略上传
 │   └── review/                 # 本地Markdown审阅页与截图
 └── tools/
     ├── draw_part01.py       # 基础教学插图的生成源码
@@ -80,6 +94,10 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
     ├── verify_part03.py     # 实验、短例子与演示核验
     ├── draw_part04.py       # 大模型与部署插图
     ├── verify_part04.py     # 真实模型、HTTP边界与正文核验
+    ├── draw_part05.py       # Agent原理与实际评价图
+    ├── verify_part05.py     # Agent权限、评分、恢复与事务核验
+    ├── verify_part05_http.py # 实际HTTP入口与并发边界
+    ├── record_part05_environment.py # 已复用环境的实际版本
     └── review_markdown.py   # Markdown结构与本地审阅页
 ```
 
@@ -125,3 +143,16 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
 19. [提示设计、评价与部署交付](第四部分-大模型与部署/19-提示设计评价与部署交付.md)
 
 第四部分复用现有Qwen2.5-1.5B-Instruct权重。基础概念和自定义HTTP实验使用已有conda CPU环境，GPU部署使用WSL2中的现成vLLM容器镜像；不要求重新训练或下载整模型。环境、版本及复用方式见[运行指南](第四部分-大模型与部署/README.md)。模型目录被Git忽略，实验报告保存在`outputs/part04/`。
+
+## 第五部分章节
+
+20. [Agent的组成与运行过程](第五部分-Agent/20-Agent的组成与运行过程.md)
+21. [编写第一个Agent循环](第五部分-Agent/21-编写第一个Agent循环.md)
+22. [Rules：规则与执行边界](第五部分-Agent/22-Rules规则与执行边界.md)
+23. [Skills：让任务方法可以复用](第五部分-Agent/23-Skills让任务方法可以复用.md)
+24. [Knowledge：读取、检索与引用](第五部分-Agent/24-Knowledge读取检索与引用.md)
+25. [状态、记忆与多步骤任务](第五部分-Agent/25-状态记忆与多步骤任务.md)
+26. [组装完整课程学习助手](第五部分-Agent/26-组装完整课程学习助手.md)
+27. [测试、评价与扩展](第五部分-Agent/27-测试评价与扩展.md)
+
+第五部分用普通Python手写Agent，逐章完成查询、练习、评分、复习记录与任务恢复。正文讲结构，完整规则与技能放在[仓库附件](assets/part05/README.md)。基础检索与机制核验可离线运行，真实模型实验复用第四部分的权重与WSL镜像，保留小模型的失败轨迹。环境、产出和验证范围见[运行指南](第五部分-Agent/README.md)。

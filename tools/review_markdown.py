@@ -17,7 +17,7 @@ from mdit_py_plugins.dollarmath import dollarmath_plugin
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'outputs' / 'review'
 OUT.mkdir(parents=True, exist_ok=True)
-DOCS = [ROOT / 'README.md', *sorted(ROOT.glob('第*部分*/*.md'))]
+DOCS = [ROOT / 'README.md', *sorted(ROOT.glob('第*部分*/*.md')), *sorted(ROOT.glob('assets/part05/**/*.md'))]
 parser = MarkdownIt('commonmark', {'html': False}).enable('table').use(dollarmath_plugin)
 
 def slug(text):
@@ -45,6 +45,8 @@ pages = {path: OUT / ('index.html' if path == ROOT/'README.md' else path.stem+'.
 # Part READMEs need distinct filenames.
 for path in DOCS:
     if path.name == 'README.md' and path != ROOT/'README.md': pages[path] = OUT/(path.parent.name+'.html')
+    if path.is_relative_to(ROOT/'assets'):
+        pages[path] = OUT/('asset-'+'-'.join(path.relative_to(ROOT/'assets').with_suffix('').parts)+'.html')
 
 summary = {'documents':len(DOCS), 'local_links':0, 'math_blocks':0, 'inline_math':0,
            'tables':0, 'horizontal_rules':0, 'errors':[], 'renderer':'CommonMark tables + MathJax 3.2.2; local approximation, not live GitHub'}

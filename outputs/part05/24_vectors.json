@@ -1,0 +1,26 @@
+{
+  "query": [
+    1,
+    2
+  ],
+  "documents": {
+    "A": [
+      2,
+      4
+    ],
+    "B": [
+      2,
+      0
+    ],
+    "C": [
+      -1,
+      -2
+    ]
+  },
+  "cosine": {
+    "A": 1.0,
+    "B": 0.4472135954999579,
+    "C": -1.0
+  },
+  "scope": "Manually specified vectors illustrate cosine; not semantic retrieval."
+}
