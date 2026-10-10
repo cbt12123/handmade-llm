@@ -19,6 +19,8 @@
 
 首次准备环境先看[环境准备与复现](附录/01-环境准备与复现.md)：按学习部分选择 conda 环境，GPU 路线提供 WSL、Docker、模型挂载与 CUDA 开发镜像构建步骤，并用统一入口检查当前环境。
 
+不确定从哪里开始时，先看[学习路线与前置自测](附录/02-学习路线与前置自测.md)。后续源码中的陌生写法可查[工程 Python 补读](附录/03-读懂后续工程代码.md)，公式中的符号与局部运算可查[数学速查](附录/04-数学符号与计算速查.md)。这些附录按需阅读，不增加进入第一章的门槛。大模型之后的 Agent 与算子是两条独立分支。
+
 环境统一使用 **conda + VS Code**。第一部分使用 conda 的 `base` 环境，不设章末作品；通过短例子、随堂检查与参考答案确认理解。Python 语法示例只使用标准库，数组与绘图示例使用 NumPy、Matplotlib。
 
 第二部分继续使用`base`；第三部分使用独立的`handmade-ml`环境，安装、版本组合与镜像站见[第三部分运行指南](第三部分-机器学习与深度学习/README.md)。第五部分的Agent进程继续使用base，通过HTTP复用第四部分的模型与WSL镜像。第六部分继续使用conda和VS Code编辑，GPU实验复用WSL容器；环境及运行步骤见对应部分指南。
@@ -29,7 +31,10 @@
 handmade-llm/                    # GitHub simple分支；本地编写目录为handmade-llm-normal
 ├── README.md
 ├── 附录/
-│   └── 01-环境准备与复现.md      # 首次安装、容器路径与环境检查
+│   ├── 01-环境准备与复现.md      # 首次安装、容器路径与环境检查
+│   ├── 02-学习路线与前置自测.md  # 入口自测、答案与补读位置
+│   ├── 03-读懂后续工程代码.md    # 状态复制、命令行、恢复与服务写法
+│   └── 04-数学符号与计算速查.md  # 公式符号、形状与局部手算
 ├── 第一部分-Python与计算基础/
 │   ├── 01-Python基础.md
 │   ├── 02-组织代码与数据处理.md
@@ -77,10 +82,12 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
 │   ├── 34-把融合算子接入真实推理.md
 │   └── 35-算子部署评价与交付.md
 ├── assets/
+│   ├── appendix/               # 工程补读的完整短脚本
 │   ├── part05/                 # 规则、技能、题库与来源约定全文
 │   └── part06/                 # 原生CUDA源码、实现索引与environment/Dockerfile
 ├── images/                     # 所有正文插图与实验图
 │   ├── environment-overview.png # conda与WSL容器的运行关系
+│   ├── learning-route.png       # 课程主线、分支与补读路线
 │   ├── part01-*.png
 │   ├── part02-*.png
 │   ├── part03-*.png
@@ -98,6 +105,7 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
 ├── data/                       # part03短信与part04、part05评价用例
 ├── outputs/
 │   ├── environment/            # 统一环境检查与公开镜像构建验证
+│   ├── learning/               # 补读示例、参数与自测数值核验
 │   ├── part02/                 # 数值报告与实验图
 │   ├── part03/                 # 模型、评价、演示与核验报告
 │   ├── part04/                 # 配置、缓存、部署、评价与manifest
@@ -107,6 +115,7 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
 └── tools/
     ├── check_environment.py # 分环境检查，不安装或修改配置
     ├── draw_environment.py  # Windows与容器环境关系图
+    ├── draw_learning_route.py # 课程学习路线图
     ├── draw_part01.py       # 基础教学插图的生成源码
     ├── draw_part01_extra.py # 数据处理与可视化插图
     ├── verify_part01.py     # 第一部分核验

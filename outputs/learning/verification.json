@@ -1,0 +1,70 @@
+{
+  "scope": "Executed independent Python blocks in the new engineering and mathematics appendices; CLI flags and invalid input; context-manager exception cleanup; numerical entrance answers. No model training or service startup.",
+  "python": "3.12.4",
+  "python_blocks": [
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 1,
+      "passed": true
+    },
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 2,
+      "passed": true
+    },
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 3,
+      "passed": true
+    },
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 4,
+      "passed": true
+    },
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 5,
+      "passed": true
+    },
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 6,
+      "passed": true
+    },
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 7,
+      "passed": true
+    },
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 8,
+      "passed": true
+    },
+    {
+      "document": "03-读懂后续工程代码.md",
+      "block": 9,
+      "passed": true
+    },
+    {
+      "document": "04-数学符号与计算速查.md",
+      "block": 1,
+      "passed": true
+    },
+    {
+      "document": "04-数学符号与计算速查.md",
+      "block": 2,
+      "passed": true
+    },
+    {
+      "document": "04-数学符号与计算速查.md",
+      "block": 3,
+      "passed": true
+    }
+  ],
+  "cli_checks": 4,
+  "context_exception_cleanup": true,
+  "numeric_answers_checked": true,
+  "import_without_running_entrypoint": true
+}
