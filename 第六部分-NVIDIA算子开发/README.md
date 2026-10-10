@@ -118,3 +118,7 @@ docker stop handmade-llm-part06-service handmade-llm-part06-runtime handmade-llm
 ```
 
 只启动过其中一部分时，仅填写实际运行的名字。下一次可分别 `docker start` 实验容器，在另一个终端 docker exec；服务可 `docker start -a` 查看日志。
+
+## 补充练习与验收
+
+[本部分练习与参考答案](../assets/practice/part06.md)按章提供两道题、提示、答案与验收证据。先写自己的计算和判断，再核对；运行实验后保留真实报告、失败与适用范围。统一记录方式见[练习说明](../assets/practice/README.md)。

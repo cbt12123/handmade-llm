@@ -1,0 +1,113 @@
+{
+  "scope": "Author-side local arithmetic and exercise coverage checks; not learner trials, model training, HTTP or GPU reruns",
+  "environment": "conda base Python and NumPy",
+  "checks": {
+    "coverage": {
+      "chapters": 35,
+      "questions": 70,
+      "answer_sections": 35
+    },
+    "axis_means": {
+      "columns": [
+        50.0,
+        80.0
+      ],
+      "rows": [
+        70.0,
+        95.0,
+        30.0
+      ]
+    },
+    "broadcast": [
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        4,
+        5
+      ],
+      [
+        4,
+        5,
+        6
+      ]
+    ],
+    "gradient_steps": {
+      "parameters": [
+        0.6000000000000001,
+        1.08
+      ],
+      "losses": [
+        5.76,
+        3.6864
+      ]
+    },
+    "cosine": 0.7999999999999998,
+    "projection": [
+      3,
+      0
+    ],
+    "conditional": 0.6666666666666666,
+    "negative_log": [
+      0.2231435513142097,
+      1.6094379124341003
+    ],
+    "stairs": [
+      1,
+      1,
+      2,
+      3,
+      5
+    ],
+    "conv_shape_and_parameters": {
+      "spatial": 8,
+      "parameters": 80
+    },
+    "gqa": {
+      "head_dim": 128,
+      "kv_width": 256,
+      "ratio": 0.16666666666666666
+    },
+    "kv_budget": {
+      "bytes": 117440512,
+      "MiB": 112.0
+    },
+    "lora_count": 24576,
+    "top_p": [
+      0.625,
+      0.37499999999999994
+    ],
+    "cuda_tail": {
+      "blocks": 2,
+      "valid_tail": 1
+    },
+    "tree_reduction": [
+      [
+        3,
+        7,
+        11,
+        15
+      ],
+      [
+        10,
+        26
+      ],
+      [
+        36
+      ]
+    ],
+    "rmsnorm": [
+      0.8485281034827336,
+      1.1313708046436448
+    ],
+    "speed_ratios": {
+      "speedup": 1.25,
+      "time_reduction": 0.2,
+      "slower_ratio": 0.9090909090909091
+    }
+  },
+  "passed": 18
+}

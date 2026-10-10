@@ -208,3 +208,7 @@ python tools/review_markdown.py
 ```powershell
 python script/part05/evaluate.py --dataset data/part05/evaluation_quality.jsonl --output-name 27_evaluation_quality_local.json
 ```
+
+## 补充练习与验收
+
+[本部分练习与参考答案](../assets/practice/part05.md)按章提供两道题、提示、答案与验收证据。先写自己的计算和判断，再核对；运行实验后保留真实报告、失败与适用范围。统一记录方式见[练习说明](../assets/practice/README.md)。

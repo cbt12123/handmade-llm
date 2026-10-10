@@ -34,3 +34,7 @@ python script/part02/07_discrete.py
 所有教学图片均在 `images/`，使用 Matplotlib 生成，源码见 `tools/draw_part02.py`。
 
 [返回项目目录](../README.md) · [进入第 4 章](04-函数与微积分入门.md)
+
+## 补充练习与验收
+
+[本部分练习与参考答案](../assets/practice/part02.md)按章提供两道题、提示、答案与验收证据。先写自己的计算和判断，再核对；运行实验后保留真实报告、失败与适用范围。统一记录方式见[练习说明](../assets/practice/README.md)。
