@@ -4,6 +4,7 @@
 
 | 文件 | 关注点 |
 |---|---|
+| [environment/Dockerfile](environment/Dockerfile) | 从公开 CUDA devel 镜像构建编译与内存检查环境 |
 | [vector_add.cu](cuda/vector_add.cu) | 全局索引、尾部保护、错误检查与Event计时 |
 | [rms_norm.cu](cuda/rms_norm.cu) | FP32教学归约、warp部分和、共享标量广播 |
 | [matmul.cu](cuda/matmul.cu) | 朴素与分块GEMM、两次同步、cuBLAS对照 |

@@ -19,6 +19,8 @@
 
 ## 环境与模型准备
 
+首次安装 WSL、Docker，或尚未准备模型时，先看[统一环境准备指南](../附录/01-环境准备与复现.md)。下面区分作者已有环境与读者新建环境，不要求你的电脑预先存在名为 `vllm` 的 conda 环境。
+
 继续使用VS Code编辑Markdown与源码。已有环境和模型优先复用，不根据环境名字判断功能是否可用。
 
 本机检查到：Windows conda的`vllm`环境提供Python 3.10.20、PyTorch 2.10.0+cpu、Transformers 4.57.6、FastAPI 0.135.1与Uvicorn 0.41.0。其CPU路径用于结构、分词、缓存和自定义HTTP教学实验；WSL2 Docker中的现成vLLM镜像用于GPU引擎部署。两条路线的库版本、精度和协议分别记录，不能混称。

@@ -32,7 +32,7 @@
 
 这里借用 vLLM 镜像中的库运行 Transformers，没有调用 vLLM 推理引擎。两个镜像分别执行独立程序，没有把CUDA 12.4编译的扩展链接进CUDA 12.9的Torch。编译器与运行库的兼容问题不能靠“都是CUDA”忽略。
 
-`cuda-ops-dev:latest` 是作者已有的本地镜像名，不是保证能从公共仓库拉取的镜像。其他机器可以从 NVIDIA CUDA 12.4 devel 镜像建立自己的编译环境，并确认 nvcc、cuBLAS 开发文件与 compute-sanitizer 可用；runtime 镜像通常不包含完整编译工具。实际版本仍以自己的报告为准。
+`cuda-ops-dev:latest` 是作者已有的本地镜像名，不是公共仓库的必备镜像。首次准备时，按[环境准备与复现](../附录/01-环境准备与复现.md)配置 WSL、Docker 和 GPU，再用仓库的 [Dockerfile](../assets/part06/environment/Dockerfile)构建 `handmade-llm-cuda:12.4.1`。它提供 nvcc、C++ 编译器、cuBLAS 开发文件与 compute-sanitizer；runtime 镜像通常不包含完整编译工具。实际版本仍以自己的报告为准。
 
 本次没有新增GPU环境、安装GPU库或下载模型。若base缺少绘图或客户端依赖，可使用清华镜像：
 
@@ -50,11 +50,13 @@ python -m pip install numpy matplotlib requests -i https://pypi.tuna.tsinghua.ed
 ```bash
 docker run --name handmade-llm-part06-dev --gpus all --ipc=host \
   -v /mnt/g/project/handmade-llm-normal:/workspace \
-  -w /workspace --entrypoint bash cuda-ops-dev:latest \
+  -w /workspace --entrypoint bash handmade-llm-cuda:12.4.1 \
   -lc 'sleep infinity'
 ```
 
 这条命令在当前终端持续运行。另开终端执行检查：
+
+已检查过作者原有 `cuda-ops-dev:latest` 的读者，也可将上面的镜像名替换成它；历史性能报告来自该原有镜像。
 
 ```bash
 docker exec handmade-llm-part06-dev python3 script/part06/29_cuda_examples.py --sanitize

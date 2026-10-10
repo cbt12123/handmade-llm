@@ -1,0 +1,159 @@
+{
+  "scope": "Read-only checks in existing conda environments; LLM reuses author vllm env, not a new conda installation.",
+  "checks": {
+    "base": {
+      "profile": "base",
+      "python_executable": "D:\\ProgramData\\anaconda3\\python.exe",
+      "passed": true,
+      "checks": [
+        {
+          "name": "python",
+          "ok": true,
+          "detail": "3.12.4"
+        },
+        {
+          "name": "numpy",
+          "ok": true,
+          "detail": "1.26.4"
+        },
+        {
+          "name": "matplotlib",
+          "ok": true,
+          "detail": "3.8.4"
+        },
+        {
+          "name": "requests",
+          "ok": true,
+          "detail": "2.32.2"
+        }
+      ]
+    },
+    "ml": {
+      "profile": "ml",
+      "python_executable": "D:\\ProgramData\\anaconda3\\envs\\handmade-ml\\python.exe",
+      "passed": true,
+      "checks": [
+        {
+          "name": "python",
+          "ok": true,
+          "detail": "3.12.15"
+        },
+        {
+          "name": "numpy",
+          "ok": true,
+          "detail": "1.26.4"
+        },
+        {
+          "name": "matplotlib",
+          "ok": true,
+          "detail": "3.8.4"
+        },
+        {
+          "name": "sklearn",
+          "ok": true,
+          "detail": "1.5.2"
+        },
+        {
+          "name": "torch",
+          "ok": true,
+          "detail": "2.5.1+cpu"
+        }
+      ]
+    },
+    "llm": {
+      "profile": "llm",
+      "python_executable": "D:\\ProgramData\\anaconda3\\envs\\vllm\\python.exe",
+      "passed": true,
+      "checks": [
+        {
+          "name": "python",
+          "ok": true,
+          "detail": "3.10.20"
+        },
+        {
+          "name": "numpy",
+          "ok": true,
+          "detail": "2.2.6"
+        },
+        {
+          "name": "requests",
+          "ok": true,
+          "detail": "2.32.5"
+        },
+        {
+          "name": "torch",
+          "ok": true,
+          "detail": "2.10.0+cpu"
+        },
+        {
+          "name": "transformers",
+          "ok": true,
+          "detail": "4.57.6"
+        },
+        {
+          "name": "fastapi",
+          "ok": true,
+          "detail": "0.135.1"
+        },
+        {
+          "name": "uvicorn",
+          "ok": true,
+          "detail": "0.41.0"
+        }
+      ]
+    },
+    "missing_model_negative_check": {
+      "exit_code": 1,
+      "missing_file_checks": 3
+    },
+    "gpu": {
+      "profile": "gpu",
+      "image": "vllm/vllm-openai:v0.20.1-cu129-ubuntu2404",
+      "passed": true,
+      "python": "3.12.13",
+      "numpy": "2.2.6",
+      "torch": "2.11.0+cu129",
+      "triton": "3.6.0",
+      "transformers": "5.7.0",
+      "device": "NVIDIA GeForce RTX 4060 Ti",
+      "cuda_compute": "32x32 ones matrix multiplication; all outputs equal 32 after synchronization",
+      "model_required_files": true,
+      "model_loaded": false,
+      "model_mount": "/models/qwen"
+    }
+  },
+  "verified_at": "2026-10-10T09:49:14.203295+08:00",
+  "cuda_development_build": {
+    "passed": true,
+    "base_image": "nvidia/cuda:12.4.1-devel-ubuntu22.04",
+    "resolved_base_digest": "sha256:da6791294b0b04d7e65d87b7451d6f2390b4d36225ab0701ee7dfec5769829f5",
+    "base_image_override": false,
+    "dockerfile_sha256": "4a097b9429da2ba607c813e5bcacf581c724046a12a173540d41465635d30267",
+    "image": {
+      "id": "sha256:a12a3acfd33366c9d16a5c3cb8ba2582a6b6194ada44eae909f3e481ef1c74f6",
+      "repo_digests": [
+        "handmade-llm-cuda@sha256:a12a3acfd33366c9d16a5c3cb8ba2582a6b6194ada44eae909f3e481ef1c74f6"
+      ]
+    },
+    "developer_checks": "cuda-dev.json",
+    "native_checks": "native-cuda.json",
+    "compiled_and_executed": [
+      "vector_add",
+      "rms_norm",
+      "matmul",
+      "matmul_tail"
+    ],
+    "memcheck_zero_errors": [
+      "vector_add",
+      "rms_norm",
+      "matmul_tail"
+    ],
+    "scope": "Built from the public default CUDA devel base on the existing WSL Docker Engine. Native reports generated in an isolated scratch workspace; original part06 performance reports were not overwritten."
+  },
+  "not_revalidated": [
+    "Fresh Windows/WSL/Docker Desktop installation",
+    "Fresh conda installation",
+    "Full model loading and generation",
+    "All previous course experiments"
+  ]
+}

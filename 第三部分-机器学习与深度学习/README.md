@@ -29,6 +29,8 @@
 
 ## 环境与基础实验
 
+各部分使用的 Python 环境及统一检查入口见[环境准备与复现](../附录/01-环境准备与复现.md)。安装本部分依赖后，可先运行 `python tools/check_environment.py --profile ml`，再开始实验。
+
 统一使用conda + VS Code。第三部分建立独立`handmade-ml`环境，前两部分继续使用base。安装、镜像与CPU版本见[第10章环境设置](10-PyTorch训练与模型管理.md#101-使用conda与vs-code建立独立环境)。按顺序完成安装，选择同名解释器，再打开工作区根目录终端。
 
 ```powershell
