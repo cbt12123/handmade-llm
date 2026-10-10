@@ -1,0 +1,5 @@
+{"id":"quality-learning-rate","request":"请根据教程解释梯度下降中，正学习率的大小与参数更新方向、步长的关系。给出更新公式和出处，不要声称一定能找到全局最小值。","kind":"explain","expected_terms":["学习率","梯度","步长"],"expected_sources":["04-函数与微积分入门.md","09-模型如何学习与神经网络.md","附录/04-数学符号与计算速查.md"],"required_evidence":["```math"]}
+{"id":"quality-conditional","request":"请根据教程解释条件概率的含义，给出条件概率公式，说明条件概率与两个事件独立的区别，并给出处。","kind":"explain","expected_terms":["概率","条件"],"expected_sources":["06-概率统计与信息量.md","附录/04-数学符号与计算速查.md"],"required_evidence":["```math"]}
+{"id":"quality-kv","request":"请根据教程解释KV缓存节省什么计算，是否意味着新Query不用读取历史Key和Value？说明复用的条件并给出处。","kind":"explain","expected_terms":["缓存","历史"],"expected_sources":["16-生成策略与KV缓存.md"],"required_evidence":["历史"]}
+{"id":"quality-rules-skills","request":"请根据教程解释Rules与Skills的职责区别，它们是否会自己执行工具？请给出处。","kind":"explain","expected_terms":["Rules","Skills","工具"],"expected_sources":["20-Agent的组成与运行过程.md","22-Rules规则与执行边界.md","23-Skills让任务方法可以复用.md"],"required_evidence":[]}
+{"id":"quality-reduction","request":"请根据教程解释GPU归约是什么，树形相加怎样让多个数合成一个结果？给一个短例子和出处。","kind":"explain","expected_terms":["归约"],"expected_sources":["30-归约共享内存与矩阵复用.md","附录/04-数学符号与计算速查.md"],"required_evidence":[]}

@@ -128,6 +128,8 @@ handmade-llm/                    # GitHub simple分支；本地编写目录为ha
     ├── verify_part04.py     # 真实模型、HTTP边界与正文核验
     ├── draw_part05.py       # Agent原理与实际评价图
     ├── verify_part05.py     # Agent权限、评分、恢复与事务核验
+    ├── draw_part05_retrieval.py   # 检索回归前后对比图
+    ├── verify_part05_retrieval.py # 公式、来源范围、检索与已知内容错误回归
     ├── verify_part05_http.py # 实际HTTP入口与并发边界
     ├── record_part05_environment.py # 已复用环境的实际版本
     ├── draw_part06.py       # 算子原理与真实性能插图

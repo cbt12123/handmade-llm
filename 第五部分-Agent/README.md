@@ -63,7 +63,7 @@ python script/part05/21_minimal_loop.py
 python script/part05/24_vector_demo.py
 ```
 
-索引默认读取前四部分的19个章节文件，忽略代码围栏与图片。源文档变化后需要重建；知识块保存路径、标题、行号和内容 ID。分块按字符数，不按 token 数。
+索引默认读取六部分35章与4份学习附录，保留数学围栏、纯文本流程与相邻说明，排除可执行代码围栏与图片。目标700字符，短邻段重叠200字符；原文单元不强行截断。知识块保存路径、标题、起止行、逐段范围与内容 ID。旧格式索引或源文件新增、删除、修改后都需要重建；可选语义向量也需重新生成。知识范围扩展不表示四道数值题库已经覆盖全部课程。
 
 离线核验使用预设动作测试循环和工具，不能当作大模型成功率。完整报告见[verification.json](../outputs/part05/verification.json)。
 
@@ -140,6 +140,7 @@ python script/part05/cli.py --resume "输出的任务ID" --learner demo
 
 ```powershell
 python tools/verify_part05.py
+python tools/verify_part05_retrieval.py
 python script/part05/evaluate.py
 python script/part05/26_demo.py
 ```
@@ -153,6 +154,8 @@ python script/part05/26_demo.py
 练习、评分和学习记录由入口直接展示工具事实，不拼接可能编造结果的模型说明；原始文本保留在状态与报告中用于诊断。解释类输出仍需核对引用和内容。
 
 本机八条自动检查均通过，但人工检查发现学习率解释错误，详见[内容核对记录](../outputs/part05/27_content_review.json)。通过数只对应这些窄范围检查，不代表教学内容全部正确。
+
+上面的八条结果是此前版本的历史记录。本次改进另保留[改进前检索](../outputs/part05/24_retrieval_before.json)与[改进后检索核验](../outputs/part05/24_retrieval_after.json)。新增解释筛查可识别已知的方向错误，仍要求内容核对；五条新解释用例运行方式见[第27章](27-测试评价与扩展.md)，新报告另存，不覆盖历史原始回答。
 
 HTTP 入口还实际验证了422、429以及评分保存，报告见[26_http.json](../outputs/part05/26_http.json)。复现时先保持模型服务运行、停止自己占用8010的Agent入口，再在有FastAPI的环境运行 `python tools/verify_part05_http.py`。核验启动并清理自己的入口进程，使用临时数据库。
 
@@ -195,3 +198,13 @@ python tools/review_markdown.py
 绘图需要已有 base 的 Matplotlib。本地审阅使用 CommonMark、表格与 MathJax，属于 GitHub 渲染的近似检查，不是线上页面验证。
 
 正文代码含局部片段与接口示意，变量由上下文说明；需要直接运行时使用对应完整脚本。向量扩展未做真实模型验证，其余核验范围均在报告中注明。
+
+## 检索与解释质量复核
+
+新增检索回归为15/15；新增五条真实解释经过逐项内容核对，1条满足、2条部分满足、2条存在错误。请结合[第27章的分析](27-测试评价与扩展.md)、[原始回答](../outputs/part05/27_evaluation_rag.json)和[内容核对报告](../outputs/part05/27_content_review_rag.json)阅读，不能把任务通过率当作知识正确率。
+
+启动本节模型服务后，可运行以下命令复测，输出文件名可自行指定，以保留历史结果：
+
+```powershell
+python script/part05/evaluate.py --dataset data/part05/evaluation_quality.jsonl --output-name 27_evaluation_quality_local.json
+```

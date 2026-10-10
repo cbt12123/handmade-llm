@@ -36,7 +36,7 @@ def action_schema(state, catalog):
     string = {'type':'string'}
     definitions = {
         'load_skill':{'name':{'type':'string','enum':[n for n in catalog if n != state['skill']]}},
-        'search':{'query':{'type':'string','minLength':1,'maxLength':80}},
+        'search':{'query':{'type':'string','minLength':1,'maxLength':24}},
         'quiz':{'topic':{'type':'string','enum':['梯度下降','概率','矩阵']},'count':{'type':'integer','minimum':1,'maximum':2}},
         'grade':{'question_id':string,'answer':string},
         'record':{'question_id':{'type':'string','enum':list(state['grades']) or ['unavailable']}},
@@ -114,12 +114,22 @@ allow_record 为 false 时不得调用 record，可以说明未保存。
 没有题号或答案时直接 finish 请求补充，不得猜测。
 没有检索结果时 finish 必须说明“资料不足”。
 '''
-        # Only needed observations: loaded skill, latest two events, compact accumulated facts.
+        if state['skill'] == 'explain':
+            system += '\nsearch 使用用户问题里的一个短术语，最多24字符，不将问题翻译或扩写成搜索句。解释紧贴来源定义、公式和条件，先用2～4句话回答核心问题，再按需要补公式与出处。资料未提供的结构或训练技巧不扩写。\n'
+        # Search excerpts live in evidence once, not duplicated in observations.
+        recent_results = []
+        for event in state['events'][-2:]:
+            observation = event.get('observation')
+            if isinstance(observation, dict) and 'matches' in observation:
+                observation = {'match_ids':[m['id'] for m in observation['matches']],
+                               'notice':observation.get('notice', '')}
+            recent_results.append({'observation':observation, 'error':event.get('error')})
+        evidence = [{key:chunk[key] for key in ('id','source','heading','line','end_line','text') if key in chunk}
+                    for chunk in list(state['evidence'].values())[-2:]]
         memory = {'request':state['request'], 'allow_record':state['allow_record'],
-                  'skill':state['skill'], 'evidence':list(state['evidence'].values())[-2:],
+                  'skill':state['skill'], 'evidence':evidence,
                   'quizzes':state['quizzes'], 'grades':state['grades'], 'recorded':state['recorded'],
-                  'recent_results':[{'observation':e.get('observation'),'error':e.get('error')}
-                                    for e in state['events'][-2:]],
+                  'recent_results':recent_results,
                   'step':state['step'], 'remaining_steps':8-state['step']}
         if state['skill']:
             memory['skill_instructions'] = (ASSETS/'skills'/state['skill']/'SKILL.md').read_text(encoding='utf-8')

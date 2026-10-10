@@ -1,0 +1,17 @@
+[
+  {"query":"梯度下降","sources":["04-函数与微积分入门.md","09-模型如何学习与神经网络.md"],"contains":["```math","学习率"]},
+  {"query":"学习率","sources":["04-函数与微积分入门.md","09-模型如何学习与神经网络.md"],"contains":["```math"]},
+  {"query":"条件概率","sources":["06-概率统计与信息量.md","附录/04-数学符号与计算速查.md"],"contains":["```math"]},
+  {"query":"矩阵乘法","sources":["03-NumPy与数据可视化.md","附录/04-数学符号与计算速查.md"],"contains":[]},
+  {"query":"KV缓存","sources":["16-生成策略与KV缓存.md"],"contains":["历史"]},
+  {"query":"Rules","sources":["20-Agent的组成与运行过程.md","22-Rules规则与执行边界.md"],"contains":["权限"]},
+  {"query":"Skills","sources":["20-Agent的组成与运行过程.md","23-Skills让任务方法可以复用.md"],"contains":["工具"]},
+  {"query":"Knowledge","sources":["20-Agent的组成与运行过程.md","24-Knowledge读取检索与引用.md"],"contains":[]},
+  {"query":"融合RMSNorm","sources":["31-用Triton实现融合RMSNorm.md","28-从推理瓶颈到GPU执行.md"],"contains":[]},
+  {"query":"整体加速比","sources":["28-从推理瓶颈到GPU执行.md","附录/04-数学符号与计算速查.md"],"contains":["```math"]},
+  {"query":"深复制","sources":["附录/03-读懂后续工程代码.md","25-状态记忆与多步骤任务.md"],"contains":[]},
+  {"query":"量子纠缠的贝尔不等式","empty":true},
+  {"query":"GPU归约","sources":["30-归约共享内存与矩阵复用.md"],"contains":[]},
+  {"query":"KV缓存节省什么计算","sources":["16-生成策略与KV缓存.md"],"contains":["历史"]},
+  {"query":"Rules vs Skills","sources":["20-Agent的组成与运行过程.md"],"contains":["工具"]}
+]

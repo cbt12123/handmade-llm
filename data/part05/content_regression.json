@@ -1,0 +1,39 @@
+{
+  "scope": "Exact selected state fields from the historical real Qwen response; synthetic positive/negative alternatives are created only inside the verifier.",
+  "origin_report": "outputs/part05/27_evaluation.json",
+  "origin_sha256": "11067c86d03e730be8b4a8a743e5e74dcde8ae2e3a5d673369bf9f26e30911b3",
+  "case_id": "explain-gd",
+  "legacy_passed": true,
+  "state": {
+    "status": "done",
+    "answer": "梯度下降是一种优化算法，用于最小化多变量函数。在训练神经网络等机器学习模型时，我们需要找到使损失函数最小化的权重向量。梯度下降通过迭代地调整权重来实现这一点。每次迭代中，我们计算损失函数关于每个权重的梯度，并沿着负梯度方向进行一步移动以减少损失。具体来说，对于单个权重 w_i，其梯度 g_i 可以表示为对损失函数 L 关于 w_i 的偏导数 ∂L/∂w_i。然后，我们将权重 w 更新为 w - α * g_i，其中 α 是学习率，控制了每一步的步长大小。学习率决定了我们如何响应梯度的方向，即是否向前移动一小步（大学习率）还是向后移动一大步（小学习率）。选择合适的学习率对于避免陷入局部极小值至关重要。通常，学习率应该足够小，以便能够跟随梯度的细微变化，同时又不至于让算法停滞不前。",
+    "citations": [
+      "4c10ae008c3f",
+      "3ba0ba4ab44e"
+    ],
+    "evidence": {
+      "4c10ae008c3f": {
+        "id": "4c10ae008c3f",
+        "source": "第二部分-面向机器学习的数学基础/04-函数与微积分入门.md",
+        "heading": "4.9 梯度下降与学习率",
+        "line": 219,
+        "text": "w 依次为 0.6、1.08、1.464、1.7712、2.017，损失逐渐下降。",
+        "score": 4.455249
+      },
+      "3ba0ba4ab44e": {
+        "id": "3ba0ba4ab44e",
+        "source": "第二部分-面向机器学习的数学基础/04-函数与微积分入门.md",
+        "heading": "4.9 梯度下降与学习率",
+        "line": 225,
+        "text": "导数为 0 不一定是最小值，例如 `-x²` 在 0 的导数也是 0，但那里是最大值。复杂模型也不保证梯度下降找到全局最优。",
+        "score": 4.439383
+      }
+    }
+  },
+  "additional_observed_answer": "梯度下降是一种优化方法，用于寻找函数的局部最小值。在梯度下降过程中，我们通过调整参数来减少损失函数$L(w)$。学习率是一个关键参数，决定了每次迭代中参数更新的方向和步长。具体来说，学习率影响着我们在损失函数导数（梯度）的方向上移动多少距离。当学习率设置得过大时，可能会导致参数跳跃到远离最小值的位置，甚至可能导致算法发散。相反，如果学习率过小，参数更新速度较慢，可能会使算法变得非常缓慢，无法有效地接近最小值。为了确保收敛，通常需要选择一个合适的学习率，使其既不过大也不过小。最佳的学习率取决于具体的函数和初始参数值。在这个例子中，当我们设定学习率为0.1，并初始化参数为0时，经过多次迭代后，参数逐步逼近最小值3。",
+  "additional_origin": {
+    "path": "outputs/part05/27_evaluation_rag.json",
+    "sha256": "9271f6e9e3c3005bb956ee60fdba1df9a0631c9470f8da7f77e6b2fe2c48edf6",
+    "case": "quality-learning-rate"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "reviewer": "assistant source-based review; not independent human or blind reader evaluation",
+  "evaluation_path": "outputs/part05/27_evaluation_rag.json",
+  "evaluation_sha256": "9271f6e9e3c3005bb956ee60fdba1df9a0631c9470f8da7f77e6b2fe2c48edf6",
+  "original_screening_passed": 5,
+  "count": 5,
+  "rescreen_passed": 4,
+  "source_based_meets": 1,
+  "source_based_partial": 2,
+  "source_based_fails": 2,
+  "scope": "Only these five saved responses; narrow screens cannot establish factual correctness. No generated answers were replaced.",
+  "results": [
+    {
+      "id": "quality-learning-rate",
+      "source_based_status": "fails",
+      "quote": "学习率是一个关键参数，决定了每次迭代中参数更新的方向和步长。",
+      "reason": "正学习率改变步长，更新方向由负梯度决定；回答未提供要求的更新公式。",
+      "cited_sources": [
+        {
+          "source": "第二部分-面向机器学习的数学基础/04-函数与微积分入门.md",
+          "heading": "4.9 梯度下降与学习率"
+        },
+        {
+          "source": "第三部分-机器学习与深度学习/09-模型如何学习与神经网络.md",
+          "heading": "9.4 梯度下降、学习率与收敛"
+        }
+      ],
+      "original_automated_passed": true,
+      "rescreen_after_observed_pattern_fix": {
+        "screening_passed": false,
+        "checks": {
+          "task_done": true,
+          "citation_membership": true,
+          "expected_terms": true,
+          "expected_source": true,
+          "required_evidence_present": true,
+          "no_known_flags": false
+        },
+        "flags": [
+          "learning_rate_direction_claim_needs_review"
+        ],
+        "human_review_required": true,
+        "scope": "Term/source checks and two narrow contradiction patterns; quotation, negation and unseen errors require human review."
+      }
+    },
+    {
+      "id": "quality-conditional",
+      "source_based_status": "meets",
+      "quote": "条件概率 `P(A|B)` 表示已知 B 发生时 A 的概率。",
+      "reason": "条件、公式与独立性说明符合6.3节。",
+      "cited_sources": [
+        {
+          "source": "第二部分-面向机器学习的数学基础/06-概率统计与信息量.md",
+          "heading": "6.3 条件概率与独立性"
+        },
+        {
+          "source": "附录/04-数学符号与计算速查.md",
+          "heading": "4. 条件概率、对数与交叉熵"
+        }
+      ],
+      "original_automated_passed": true,
+      "rescreen_after_observed_pattern_fix": {
+        "screening_passed": true,
+        "checks": {
+          "task_done": true,
+          "citation_membership": true,
+          "expected_terms": true,
+          "expected_source": true,
+          "required_evidence_present": true,
+          "no_known_flags": true
+        },
+        "flags": [],
+        "human_review_required": true,
+        "scope": "Term/source checks and two narrow contradiction patterns; quotation, negation and unseen errors require human review."
+      }
+    },
+    {
+      "id": "quality-kv",
+      "source_based_status": "fails",
+      "quote": "新的Query可能会改变旧位置的表示，导致无法直接复用",
+      "reason": "因果注意力下旧位置表示不受新增Query影响；新Query仍须与历史Key计算注意力。回答遗漏权重和位置等缓存适用条件。",
+      "cited_sources": [
+        {
+          "source": "第四部分-大模型与部署/16-生成策略与KV缓存.md",
+          "heading": "16.9 KV Cache减少什么，不减少什么"
+        },
+        {
+          "source": "第四部分-大模型与部署/16-生成策略与KV缓存.md",
+          "heading": "16.5 为什么需要KV Cache"
+        }
+      ],
+      "original_automated_passed": true,
+      "rescreen_after_observed_pattern_fix": {
+        "screening_passed": true,
+        "checks": {
+          "task_done": true,
+          "citation_membership": true,
+          "expected_terms": true,
+          "expected_source": true,
+          "required_evidence_present": true,
+          "no_known_flags": true
+        },
+        "flags": [],
+        "human_review_required": true,
+        "scope": "Term/source checks and two narrow contradiction patterns; quotation, negation and unseen errors require human review."
+      }
+    },
+    {
+      "id": "quality-rules-skills",
+      "source_based_status": "partial",
+      "quote": "Skills 则通过调用工具来执行具体的任务",
+      "reason": "核心职责有涉及，但未明确Markdown技能文件不自行执行，真正执行工具的是Python宿主；Rules制定策略的拟人描述也不准确。",
+      "cited_sources": [
+        {
+          "source": "第五部分-Agent/20-Agent的组成与运行过程.md",
+          "heading": "20.3 Rules、Skills、Knowledge 的职责"
+        },
+        {
+          "source": "第五部分-Agent/20-Agent的组成与运行过程.md",
+          "heading": "20.6 文件结构与依赖方向"
+        }
+      ],
+      "original_automated_passed": true,
+      "rescreen_after_observed_pattern_fix": {
+        "screening_passed": true,
+        "checks": {
+          "task_done": true,
+          "citation_membership": true,
+          "expected_terms": true,
+          "expected_source": true,
+          "required_evidence_present": true,
+          "no_known_flags": true
+        },
+        "flags": [],
+        "human_review_required": true,
+        "scope": "Term/source checks and two narrow contradiction patterns; quotation, negation and unseen errors require human review."
+      }
+    },
+    {
+      "id": "quality-reduction",
+      "source_based_status": "partial",
+      "quote": "在处理图像数据时，可以通过树形相加的方法来快速计算每个像素的颜色值。",
+      "reason": "多个数合并为一个结果正确，但未给出要求的短数值例子，像素颜色例子缺少资料支持。",
+      "cited_sources": [
+        {
+          "source": "第六部分-NVIDIA算子开发/30-归约共享内存与矩阵复用.md",
+          "heading": "30.2 从树形相加理解并行归约"
+        },
+        {
+          "source": "第六部分-NVIDIA算子开发/30-归约共享内存与矩阵复用.md",
+          "heading": "30.1 先给出归约目标"
+        }
+      ],
+      "original_automated_passed": true,
+      "rescreen_after_observed_pattern_fix": {
+        "screening_passed": true,
+        "checks": {
+          "task_done": true,
+          "citation_membership": true,
+          "expected_terms": true,
+          "expected_source": true,
+          "required_evidence_present": true,
+          "no_known_flags": true
+        },
+        "flags": [],
+        "human_review_required": true,
+        "scope": "Term/source checks and two narrow contradiction patterns; quotation, negation and unseen errors require human review."
+      }
+    }
+  ],
+  "original_eight_case_regression": {
+    "path": "outputs/part05/27_evaluation_regression.json",
+    "sha256": "f1f56b1f593259c3baec51511e21413de45bb61e75352f526879b0dd8e321296",
+    "automated_passed": 8,
+    "limitation": "解释用例仍出现非线性模型需要换成SGD等方法的错误区分，8/8仅表示原有任务断言通过。"
+  }
+}

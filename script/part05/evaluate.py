@@ -6,20 +6,20 @@ import json
 import tempfile
 import time
 from common import ROOT, save
-from knowledge import Knowledge
+from knowledge import Knowledge, INDEX, digest
 from model import HTTPModel
 from runner import Agent
 from store import Store
 from toolbox import Toolbox
 from presentation import present
+from content_review import review_explanation
 
 
 def judge(case,state,store):
     kind = case['kind']
     done = state['status'] == 'done'
     if kind == 'explain':
-        evidence_ok = bool(state['citations']) and all(c in state['evidence'] for c in state['citations'])
-        return done and evidence_ok and all(t in state['answer'] for t in case['expected_terms'])
+        return review_explanation(case,state)['screening_passed']
     if kind == 'quiz':
         rendered = present(state)
         return done and set(state['quizzes']) == {'gd-01','gd-02'} and all(q in rendered['answer'] for q in state['quizzes'])
@@ -42,27 +42,35 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--url',default='http://127.0.0.1:8002')
     parser.add_argument('--model',default='tutorial-agent')
+    parser.add_argument('--dataset',type=Path,default=ROOT/'data'/'part05'/'evaluation.jsonl')
+    parser.add_argument('--output-name',default='27_evaluation.json')
     args = parser.parse_args()
-    dataset = ROOT/'data'/'part05'/'evaluation.jsonl'
+    if Path(args.output_name).name != args.output_name or not args.output_name.endswith('.json'):
+        parser.error('--output-name 必须是一个 .json 文件名，不接受目录')
+    dataset = args.dataset
     cases = [json.loads(line) for line in dataset.read_text(encoding='utf-8').splitlines() if line]
     model = HTTPModel(args.url,args.model)
     results = []
     with tempfile.TemporaryDirectory() as folder:
         store = Store(Path(folder)/'evaluation.sqlite3')
         try:
-            agent = Agent(model,Toolbox(Knowledge(),store),store)
+            knowledge = Knowledge()
+            agent = Agent(model,Toolbox(knowledge,store),store)
             for case in cases:
                 start, offset = time.perf_counter(),len(model.calls)
                 state = agent.run(agent.create(case['request'],case['id'],case.get('allow_record',False)))
                 passed = judge(case,state,store)
                 result = {'id':case['id'],'kind':case['kind'],'passed':passed,
                           'seconds':time.perf_counter()-start,'state':state,'presentation':present(state),'model_calls':model.calls[offset:]}
+                if case['kind'] == 'explain':
+                    result['content_screen'] = review_explanation(case,state)
                 results.append(result)
                 print(case['id'],state['status'],'PASS' if passed else 'FAIL',flush=True)
-                save('27_evaluation.json',{'backend':'vllm','model':args.model,
+                save(args.output_name,{'backend':'vllm','model':args.model,
                      'dataset_sha256':hashlib.sha256(dataset.read_bytes()).hexdigest(),
+                     'knowledge_index_sha256':digest(INDEX), 'knowledge_sources':knowledge.data['sources'],
                      'count':len(results),'passed':sum(r['passed'] for r in results),'results':results,
-                     'scope':'Eight authored cases, automated narrow checks. No general accuracy or semantic correctness guarantee.'})
+                     'scope':'Authored cases, automated narrow checks including explanation screening. Human review still required; no general accuracy guarantee.'})
         finally:
             store.close()
             model.session.close()
