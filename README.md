@@ -32,7 +32,7 @@
 每个部分一个文件夹，章节为 Markdown 文件，图片集中保存在根目录 `images/`。在 VS Code 打开章节后，按 `Ctrl+Shift+V` 查看带图片的预览。
 
 ```text
-handmade-llm/                    # GitHub simple分支；本地编写目录为handmade-llm-normal
+handmade-llm/                    # GitHub main分支；本地编写目录为handmade-llm-normal
 ├── README.md
 ├── 附录/
 │   ├── 01-环境准备与复现.md      # 首次安装、容器路径与环境检查
